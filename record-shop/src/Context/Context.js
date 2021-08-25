@@ -13,6 +13,7 @@ export const Context = ({ children }) => {
       src: "./music/on-n-on.mp3",
       price: 44,
       rating: 3,
+      quantity: 1,
     },
     {
       id: 2,
@@ -52,7 +53,7 @@ export const Context = ({ children }) => {
       rating: 3,
     },
     {
-      id: 1,
+      id: 6,
       title: "Forget me too ft. Halsey",
       artist: "Machine Gun Kelly",
       img_src: "./images/song-1.jpg",
@@ -61,7 +62,7 @@ export const Context = ({ children }) => {
       rating: 3,
     },
     {
-      id: 2,
+      id: 7,
       title: "Song 2",
       artist: "Artist 2",
       img_src: "./images/song-2.jpg",
@@ -70,7 +71,7 @@ export const Context = ({ children }) => {
       rating: 3,
     },
     {
-      id: 3,
+      id: 8,
       title: "Song 3",
       artist: "Artist 3",
       img_src: "./images/song-3.jpg",
@@ -79,7 +80,7 @@ export const Context = ({ children }) => {
       rating: 3,
     },
     {
-      id: 4,
+      id: 9,
       title: "Song 4",
       artist: "Artist 4",
       img_src: "./images/song-4.jpg",
@@ -89,7 +90,7 @@ export const Context = ({ children }) => {
     },
 
     {
-      id: 5,
+      id: 10,
       title: "Song 5",
       artist: "Artist 5",
       img_src: "./images/alive.jpg",
@@ -101,7 +102,8 @@ export const Context = ({ children }) => {
 
   const [state, dispatch] = useReducer(cartReducer, {
     songs: songs,
-    cart: [],
+    cart: [
+  ]
   });
 
   // console.log(songs[0].id);

@@ -16,6 +16,7 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 
+
 export const Navigation = () => {
   return (
     <>
@@ -69,6 +70,7 @@ export const Navigation = () => {
       </div>
       <Navbar bg="light" className="navbar">
         <Navbar.Brand href="#">SECRET TRACK RECORD STORE</Navbar.Brand>
+        
         <Form className="d-flex">
           <FormControl
             type="search"

@@ -2,14 +2,23 @@ import React from "react";
 import { Button, Card } from "react-bootstrap";
 import { CartState } from "../../Context/Context";
 import Music from "./Music";
+import { useState } from "react";
 
 // import Rating from "./Rating";
 
 const SingleProduct = ({ item }) => {
-  const {
-    state: { cart },
-    dispatch,
-  } = CartState();
+  
+const { state: { cart } } = CartState();
+
+ const [cartRecords, setCartRecords] = useState(cart)
+
+ function onAdd(product){
+   console.log("add to cart")
+   setCartRecords([...cartRecords, product
+  ])
+  console.log(cartRecords.length)
+
+ }
   return (
     <div className="products">
       <Card>
@@ -29,6 +38,7 @@ const SingleProduct = ({ item }) => {
 
             {/* <Rating rating={item.ratings} /> */}
           </Card.Subtitle>
+          <button onClick={() => onAdd(item)}>Add to cart</button>
         </Card.Body>
       </Card>
     </div>
