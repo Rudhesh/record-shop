@@ -1,0 +1,45 @@
+.navigation {
+  margin-top: 10px;
+}
+
+.navigation li {
+  list-style: none;
+  display: inline;
+  padding: 0 5px;
+  margin: 5px;
+}
+
+.navigation a:hover {
+  background-color: rgb(212, 211, 211);
+  color: #000;
+  border-radius: 1px;
+  padding: 5px;
+}
+
+.navigation a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  padding: 0 5px;
+  margin: 2px;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(236, 236, 236);
+}
+
+.headerTop {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px;
+}
+
+.icons {
+  display: flex;
+  margin: 6px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between !important;
+}
