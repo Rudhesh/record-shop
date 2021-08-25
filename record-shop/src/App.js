@@ -1,14 +1,25 @@
+// import React from "react";
+import ReadyPlayer from "./ReadyPlayer";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Home } from "./Home";
+import { About } from "./About";
+import { Contact } from "./Contact";
+import { Genre } from "./Genre";
+import { Navigation } from "./components/Player/Navigation";
+import { Cart } from "./Cart";
+import Theme from "./components/Theme";
 import React, { useState } from 'react'
 import LoginForm from './component/LoginForm';
-import "./App.css";
 
-function App() {
+
+
+
+const App = () => {
+
   const adminUser = {
     email: "user@user.com",
     password: "user123"
   }
-
-
   const [user, setUser] = useState({ name: "", email: "" });
   const [error, setError] = useState("");
 
@@ -23,7 +34,8 @@ function App() {
         email: details.email
       });
     } else {
-      console.log("Details do not match");
+      alert("Details do not match")
+      // console.log("Details do not match");
       setError("Details do not match!");
     }
   }
@@ -35,20 +47,48 @@ function App() {
 
 
   return (
-    <div className="App">
+    <div>
+     <div className="App">
       {(user.email != "") ? (
         <div className="welcome">
           <h2> Welcome, <span>{user.name}</span></h2>
           <button onClick={Logout}>Logout</button>
-
         </div>
       ) : (
         <LoginForm Login={Login} error={error} />
       )}
     </div>
 
+
+    <BrowserRouter>
+      <div className="theme">
+        {/* <Theme /> */}
+        <Navigation />
+      </div>
+      <Switch>
+        <>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/cart">
+            <Cart />
+          </Route>
+          <Route exact path="/about">
+            <About />
+          </Route>
+          <Route exact path="/genre">
+            <Genre />
+          </Route>
+          <Route exact path="/contact">
+            <Contact />
+          </Route>
+          <ReadyPlayer />
+        </>
+      </Switch>
+    </BrowserRouter>
+    </div>
   );
-}
+};
 
 
 export default App;
