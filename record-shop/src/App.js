@@ -85,7 +85,6 @@ const App = () => {
           <Route exact path="/contact">
             <Contact />
           </Route>
-          
           <ReadyPlayer />
         </>
       </Switch>
