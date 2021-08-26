@@ -38,6 +38,7 @@ form .form-inner {
   background-color: #fff;
   padding: 30px;
   z-index: 2;
+  margin-left: 200px;
 }
 form .form-inner h2 {
   color: rgb(15, 15, 15);
@@ -90,6 +91,8 @@ form .form-inner .form-group {
   border-radius: 5px;
   padding: 1px 10px;
 }
+
+/* ======================================== */
 
 .c-player {
   background-color: #3b3b3b;

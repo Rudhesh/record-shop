@@ -10,10 +10,11 @@ import { Cart } from "./Cart";
 import Theme from "./components/Theme";
 import React, { useState } from 'react'
 import LoginForm from './component/LoginForm';
+import SignupForm from './component/SignupForm'
 
 
 
-
+// Log In Form 
 const App = () => {
 
   const adminUser = {
@@ -35,8 +36,6 @@ const App = () => {
       });
     } else {
       alert("Details do not match")
-      // console.log("Details do not match");
-      setError("Details do not match!");
     }
   }
 
@@ -55,8 +54,12 @@ const App = () => {
           <button onClick={Logout}>Logout</button>
         </div>
       ) : (
-        <LoginForm Login={Login} error={error} />
-      )}
+        <div style={{display:"flex", justifyContent:"space-around"}}>
+        <SignupForm/>
+        <LoginForm Login={Login} error={error} style={{marginLeft:"80px"}}/>
+        </div>
+        )}
+
     </div>
 
 
@@ -82,6 +85,7 @@ const App = () => {
           <Route exact path="/contact">
             <Contact />
           </Route>
+          
           <ReadyPlayer />
         </>
       </Switch>
