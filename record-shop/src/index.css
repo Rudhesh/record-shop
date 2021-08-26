@@ -8,11 +8,13 @@ body {
   background-color: #ddd;
 }
 
-.App {
+.player {
+  position: fixed;
+  bottom: 0px;
 }
 
 .c-player {
-  background-color: #3b3b3b;
+  background-color: #3b3b3bc2;
   width: 100vw;
   display: flex;
   justify-content: space-evenly;
