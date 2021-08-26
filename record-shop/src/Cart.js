@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { ListGroup, Button, Form, Col, Image, Row } from "react-bootstrap";
+import { ListGroup, Button, Col, Image, Row } from "react-bootstrap";
 import { CartState } from "./Context/Context";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import Form from "react-bootstrap/Form";
 
 const Cart = () => {
   const {
@@ -98,10 +99,20 @@ const Cart = () => {
           Shipping<span>8,00€</span>
         </span>
         <span>Berlin, Germany</span>
-        <select>
+
+        <Form.Label className="my-1 mr-2" htmlFor="inlineFormCustomSelectPref">
+          Select buying Method
+        </Form.Label>
+        <Form.Control
+          as="select"
+          className="my-1 mr-sm-2"
+          id="inlineFormCustomSelectPref"
+          custom
+        >
+          <option>Choose...</option>
           <option>Germany - 8,00€</option>
           <option>Pick up at the store</option>
-        </select>
+        </Form.Control>
         <hr></hr>
         <h3>
           Total<pan>{total}</pan>

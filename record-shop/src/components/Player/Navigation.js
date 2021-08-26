@@ -18,7 +18,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { CartState } from "../../Context/Context";
 import "./styles.css";
-import "../../App.css"
+import "../../App.css";
 
 export const Navigation = () => {
   const {
@@ -44,8 +44,10 @@ export const Navigation = () => {
               <NavLink className="navBarText" exact to="/about">
                 ABOUT
               </NavLink>{" "}
-              <NavLink  className="navBarText" to="/genre">GENRE</NavLink>{" "}
-              <NavLink  className="navBarText" exact to="/contact">
+              <NavLink exact to="/genre">
+                GENRE
+              </NavLink>{" "}
+              <NavLink exact to="/contact">
                 CONTACT
               </NavLink>{" "}
             </Nav>

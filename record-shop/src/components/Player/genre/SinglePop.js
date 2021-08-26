@@ -1,9 +1,9 @@
 import React from "react";
 import { Button, Card } from "react-bootstrap";
-import { CartState } from "../../Context/Context";
-import Music from "./Music";
+import { CartState } from "../../../Context/Context";
+import Music from "../Music";
 
-const SingleProduct = ({ item }) => {
+const SinglePop = ({ item }) => {
   const {
     state: { cart },
     dispatch,
@@ -20,21 +20,16 @@ const SingleProduct = ({ item }) => {
         />
         <Card.Body>
           <Music url={item.src} />
-          <Card.Title className="artist">{item.artist}</Card.Title>
-          <Card.Title>
-            <h6 className="titleRecord">{item.title}</h6>
-          </Card.Title>
+          <Card.Title>{item.title}</Card.Title>
+          <Card.Title>{item.artist}</Card.Title>
 
           <Card.Subtitle style={{ paddingBottom: 10 }}>
-            <p className="formatPrice">
-              {item.format} | {item.price} €
-            </p>
+            <span>€ {item.price}</span>
 
             {/* <Rating rating={item.ratings} /> */}
           </Card.Subtitle>
           {cart.some((p) => p.id === item.id) ? (
-            <button
-              className="removeFromCart"
+            <Button
               onClick={() => {
                 dispatch({
                   type: "REMOVE_FROM_CART",
@@ -43,11 +38,10 @@ const SingleProduct = ({ item }) => {
               }}
               variant="danger"
             >
-              REMOVE FROM CART
-            </button>
+              Remove from cart
+            </Button>
           ) : (
-            <button
-              className="addToCart"
+            <Button
               onClick={() => {
                 dispatch({
                   type: "ADD_TO_CART",
@@ -55,8 +49,8 @@ const SingleProduct = ({ item }) => {
                 });
               }}
             >
-              ADD TO CART
-            </button>
+              Add to cart
+            </Button>
           )}
         </Card.Body>
       </Card>
@@ -64,4 +58,4 @@ const SingleProduct = ({ item }) => {
   );
 };
 
-export default SingleProduct;
+export default SinglePop;
