@@ -43,7 +43,9 @@ export const Navigation = () => {
               <NavLink exact to="/about">
                 ABOUT
               </NavLink>{" "}
-              <NavLink to="/genre">GENRE</NavLink>{" "}
+              <NavLink exact to="/genre">
+                GENRE
+              </NavLink>{" "}
               <NavLink exact to="/contact">
                 CONTACT
               </NavLink>{" "}

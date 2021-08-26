@@ -1,9 +1,9 @@
 import React from "react";
 import { Button, Card } from "react-bootstrap";
-import { CartState } from "../../Context/Context";
-import Music from "./Music";
+import { CartState } from "../../../Context/Context";
+import Music from "../Music";
 
-const SingleProduct = ({ item }) => {
+const SinglePop = ({ item }) => {
   const {
     state: { cart },
     dispatch,
@@ -58,4 +58,4 @@ const SingleProduct = ({ item }) => {
   );
 };
 
-export default SingleProduct;
+export default SinglePop;

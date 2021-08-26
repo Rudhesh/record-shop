@@ -6,6 +6,7 @@ import { About } from "./About";
 import { Contact } from "./Contact";
 import Genre from "./Genre";
 import { Navigation } from "./components/Player/Navigation";
+import Cart from "./Cart";
 
 const App = () => {
   return (
@@ -22,6 +23,8 @@ const App = () => {
           <Route path="/genre" component={Genre} />
 
           <Route exact path="/contact" component={Contact} />
+
+          <Route exact path="/cart" component={Cart} />
 
           <ReadyPlayer />
         </Switch>

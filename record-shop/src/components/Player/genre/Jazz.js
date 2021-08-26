@@ -1,7 +1,7 @@
 import React from "react";
 
 const Jazz = () => {
-  return <div>Jazz</div>;
+  return <div>Jazzzzzz</div>;
 };
 
 export default Jazz;
