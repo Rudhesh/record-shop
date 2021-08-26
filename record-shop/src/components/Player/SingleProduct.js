@@ -20,16 +20,21 @@ const SingleProduct = ({ item }) => {
         />
         <Card.Body>
           <Music url={item.src} />
-          <Card.Title>{item.title}</Card.Title>
-          <Card.Title>{item.artist}</Card.Title>
+          <Card.Title className="artist">{item.artist}</Card.Title>
+          <Card.Title>
+            <h6 className="titleRecord">{item.title}</h6>
+          </Card.Title>
 
           <Card.Subtitle style={{ paddingBottom: 10 }}>
-            <span>€ {item.price}</span>
+            <p className="formatPrice">
+              {item.format} | {item.price} €
+            </p>
 
             {/* <Rating rating={item.ratings} /> */}
           </Card.Subtitle>
           {cart.some((p) => p.id === item.id) ? (
-            <Button
+            <button
+              className="removeFromCart"
               onClick={() => {
                 dispatch({
                   type: "REMOVE_FROM_CART",
@@ -38,10 +43,11 @@ const SingleProduct = ({ item }) => {
               }}
               variant="danger"
             >
-              Remove from cart
-            </Button>
+              REMOVE FROM CART
+            </button>
           ) : (
-            <Button
+            <button
+              className="addToCart"
               onClick={() => {
                 dispatch({
                   type: "ADD_TO_CART",
@@ -49,8 +55,8 @@ const SingleProduct = ({ item }) => {
                 });
               }}
             >
-              Add to cart
-            </Button>
+              ADD TO CART
+            </button>
           )}
         </Card.Body>
       </Card>

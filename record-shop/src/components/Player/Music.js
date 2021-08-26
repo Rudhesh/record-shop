@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPause, faPlay } from "@fortawesome/free-solid-svg-icons";
 
 const useAudio = (url) => {
   const [audio] = useState(new Audio(url));
@@ -25,8 +27,12 @@ const Music = ({ url }) => {
 
   return (
     <div>
-      <button type="button" class="btn btn-primary music" onClick={toggle}>
-        {playing ? "Music: Pause" : "Music: Play"}
+      <button type="button" class="btnPlayer" onClick={toggle}>
+        {playing ? (
+          <FontAwesomeIcon icon={faPlay} />
+        ) : (
+          <FontAwesomeIcon icon={faPause} />
+        )}
       </button>
     </div>
   );

@@ -93,7 +93,7 @@ const Cart = () => {
         <hr></hr>
         <span className="title">Item count: ({cart.length})</span>
         <span>
-          Subtotal<span>{subTotal}</span>
+          Subtotal<span>{subTotal.toFixed(2)}</span>
         </span>
         <span>
           Shipping<span>8,00€</span>
