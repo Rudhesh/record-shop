@@ -280,25 +280,25 @@ export const Context = ({ children }) => {
       artist: "Artist 5",
       img_src: "./images/alive.jpg",
       src: "./music/Midranger - Apocalypse [NCS Release].mp3",
-      price: 44,
+      price: 76,
       rating: 3,
     },
     {
       id: 6,
-      title: "Forget me too ft. Halsey",
-      artist: "Machine Gun Kelly",
+      title: "me too ft. Halsey",
+      artist: "Gun Kelly",
       img_src: "./images/song-1.jpg",
       src: "./music/on-n-on.mp3",
-      price: 44,
+      price: 34,
       rating: 3,
     },
     {
       id: 7,
-      title: "Song 2",
-      artist: "Artist 2",
+      title: "fun",
+      artist: "byan ",
       img_src: "./images/song-2.jpg",
       src: "./music/somebody-new.mp3",
-      price: 44,
+      price: 94,
       rating: 3,
     },
     {
@@ -316,7 +316,7 @@ export const Context = ({ children }) => {
       artist: "Artist 4",
       img_src: "./images/song-4.jpg",
       src: "./music/file_example_MP3_1MG.mp3",
-      price: 44,
+      price: 84,
       rating: 3,
     },
 
@@ -326,7 +326,7 @@ export const Context = ({ children }) => {
       artist: "Artist 5",
       img_src: "./images/alive.jpg",
       src: "./music/Midranger - Apocalypse [NCS Release].mp3",
-      price: 44,
+      price: 45,
       rating: 3,
     }
 
@@ -340,8 +340,11 @@ export const Context = ({ children }) => {
 
   const [state, dispatch] = useReducer(cartReducer, {
     songs: songs,
-    cart: [
-  ]
+    cart: [],
+  });
+
+  const [productState, productDispatch] = useReducer(productReducer, {
+    searchQuery: "",
   });
 
   // console.log(songs[0].id);
@@ -353,7 +356,9 @@ export const Context = ({ children }) => {
 
   return (
     <div>
-      <ShoppingCart.Provider value={{ state, dispatch }}>
+      <ShoppingCart.Provider
+        value={{ state, dispatch, productState, productDispatch }}
+      >
         {children}
       </ShoppingCart.Provider>
     </div>

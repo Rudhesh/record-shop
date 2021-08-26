@@ -1,72 +1,118 @@
-import React, { useState } from "react";
-import './Cart.css'
+import React, { useEffect, useState } from "react";
+import { ListGroup, Button, Form, Col, Image, Row } from "react-bootstrap";
 import { CartState } from "./Context/Context";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
+const Cart = () => {
+  const {
+    state: { cart },
+    dispatch,
+  } = CartState();
 
-export const Cart = () => {
+  const [total, setTotal] = useState();
 
-const { state: { cart } } = CartState();
+  const subTotal = cart.reduce(
+    (acc, curr) => acc + Number(curr.price) * curr.qty,
+    0
+  );
+  const shippingPrice = 8;
+  const totalPrice = subTotal + shippingPrice;
 
-
-  const [cartRecords, setCartRecords] = useState(cart)
-
-  const subTotal = cartRecords.reduce((a, c) => a + c.price *c.quantity, 0)
-  const shippingPrice = 8
-  const totalPrice = subTotal + shippingPrice
-
-
-
-  function handleRemove(id) {
-      const newList = cartRecords.filter((item) => item.id !== id)
-      setCartRecords(newList)
-  }
-
+  useEffect(() => {
+    setTotal(totalPrice);
+  }, [cart]);
 
   return (
-    <div className="cart">
-      <div className="left">
-        <h3>My Cart</h3>
-        <hr></hr>
+    <div className="home">
+      <div className="productContainer">
+        <ListGroup>
+          {cart.map((item1) => (
+            <ListGroup.Item key={item1.id}>
+              <Row>
+                <Col md={2}>
+                  <Image src={item1.img_src} alt={item1.name} fluid rounded />
+                </Col>
 
-        <div className="cartRecordsList">
-          {cartRecords.length === 0 && <div>Cart is empty</div>}
-            {cartRecords.map((record) => 
-            <div className="recordItemWrapper">
-                <img src={record.picture} alt="" width="150"></img>
-                <div className="informations">
-                    <h2>{record.artist}</h2>
-                    <p>{record.title}</p>
-                    <p>Genre: {record.genre}</p>
-                </div>
-                <div className="quantityButton">
-                    <button>-</button>
-                    <span>{record.quantity}</span>
-                    <button>+</button>
-                </div>
-                <div className="purchase">
-                    <h3>{record.price}</h3>
-                    <button onClick={()=> handleRemove(record.id)}>X</button>
-                </div>
-            </div>)}
-        </div>
+                <Col md={2}>
+                  <span>Title: {item1.title}</span>
+                  <br />
+                  <span>Artist: {item1.artist}</span>
+                </Col>
+
+                <Col md={2}>€ {item1.price}</Col>
+
+                <Col md={2}>
+                  <Form.Control
+                    as="select"
+                    value={item1.qty}
+                    onChange={(e) =>
+                      dispatch({
+                        type: "CHANGE_CART_QTY",
+                        payload: {
+                          id: item1.id,
+                          qty: e.target.value,
+                        },
+                      })
+                    }
+                  >
+                    {[0, 1, 2, 3, 4, 5].map((x) => (
+                      <option key={x + 1}>{x}</option>
+                    ))}
+                  </Form.Control>
+                </Col>
+                <Col md={2}>
+                  <Button
+                    type="button"
+                    variant="light"
+                    onClick={() =>
+                      dispatch({
+                        type: "REMOVE_FROM_CART",
+                        payload: item1,
+                      })
+                    }
+                  >
+                    <FontAwesomeIcon icon={faTrash} />
+                  </Button>
+                </Col>
+              </Row>
+            </ListGroup.Item>
+          ))}
+        </ListGroup>
       </div>
-
-      <div className="right">
+      {/* <div className="filters summary">
+        <span className="title">Subtotal ({cart.length}) items</span>
+        <span style={{ fontWeight: 700, fontSize: 20 }}>Total: € {total} </span>
+        <Button type="button" disabled={cart.length === 0}>
+          Proceed to Checkout
+        </Button>
+      </div> */}
+      <div className="filters summary">
         <h3>Order Summary</h3>
         <hr></hr>
-        <span>Subtotal<span>{subTotal}</span></span>
-        <span>Shipping<span>8,00€</span></span>
+        <span className="title">Item count: ({cart.length})</span>
+        <span>
+          Subtotal<span>{subTotal}</span>
+        </span>
+        <span>
+          Shipping<span>8,00€</span>
+        </span>
         <span>Berlin, Germany</span>
         <select>
           <option>Germany - 8,00€</option>
           <option>Pick up at the store</option>
         </select>
         <hr></hr>
-        <h3>Total<pan>{totalPrice}</pan></h3>
+        <h3>
+          Total<pan>{total}</pan>
+        </h3>
         <span>Tax included</span>
-        
+        <Button type="button" disabled={cart.length === 0}>
+          Proceed to Checkout
+        </Button>
       </div>
-
     </div>
-  )
+  );
 };
+
+export default Cart;

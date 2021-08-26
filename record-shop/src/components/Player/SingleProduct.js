@@ -7,18 +7,18 @@ import { useState } from "react";
 // import Rating from "./Rating";
 
 const SingleProduct = ({ item }) => {
-  
-const { state: { cart } } = CartState();
+  const {
+    state: { cart },
+    dispatch,
+  } = CartState();
 
- const [cartRecords, setCartRecords] = useState(cart)
+  const [cartRecords, setCartRecords] = useState(cart);
 
- function onAdd(product){
-   console.log("add to cart")
-   setCartRecords([...cartRecords, product
-  ])
-  console.log(cartRecords.length)
-
- }
+  function onAdd(product) {
+    console.log("add to cart");
+    setCartRecords([...cartRecords, product]);
+    console.log(cartRecords.length);
+  }
   return (
     <div className="products">
       <Card>
@@ -38,7 +38,30 @@ const { state: { cart } } = CartState();
 
             {/* <Rating rating={item.ratings} /> */}
           </Card.Subtitle>
-          <button onClick={() => onAdd(item)}>Add to cart</button>
+          {cart.some((p) => p.id === item.id) ? (
+            <Button
+              onClick={() => {
+                dispatch({
+                  type: "REMOVE_FROM_CART",
+                  payload: item,
+                });
+              }}
+              variant="danger"
+            >
+              Remove from cart
+            </Button>
+          ) : (
+            <Button
+              onClick={() => {
+                dispatch({
+                  type: "ADD_TO_CART",
+                  payload: item,
+                });
+              }}
+            >
+              Add to cart
+            </Button>
+          )}
         </Card.Body>
       </Card>
     </div>
