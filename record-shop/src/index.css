@@ -179,7 +179,7 @@ form .form-inner .form-group {
   border-radius: 5px;
   padding: 1px 10px;
 }
-.submit {
+.input-login {
   font-size: 20px;
   font-family: Arial;
   width: 130px;
@@ -195,12 +195,11 @@ form .form-inner .form-group {
   box-shadow: inset 0px 0px 14px -3px #f2fadc;
   text-shadow: inset 0px 1px 0px #ced9bf;
   background: linear-gradient(#dbe6c4, #9ba892);
-.player {
   position: fixed;
   bottom: 0px;
 }
 
-.submit:hover {
+.input-login:hover {
   background: linear-gradient(#9ba892, #dbe6c4);
 }
 /* ===================================== */
