@@ -6,8 +6,6 @@ import { About } from "./About";
 import { Contact } from "./Contact";
 import Genre from "./Genre";
 import { Navigation } from "./components/Player/Navigation";
-import Cart from "./Cart";
-import CourseItem from "./components/Player/CourseItem";
 
 const App = () => {
   return (
