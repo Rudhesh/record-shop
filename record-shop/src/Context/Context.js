@@ -13,6 +13,7 @@ export const Context = ({ children }) => {
       src: "./music/on-n-on.mp3",
       price: 44,
       rating: 3,
+      quantity: 1,
     },
     {
       id: 2,

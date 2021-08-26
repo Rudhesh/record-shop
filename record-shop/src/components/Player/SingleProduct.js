@@ -2,6 +2,7 @@ import React from "react";
 import { Button, Card } from "react-bootstrap";
 import { CartState } from "../../Context/Context";
 import Music from "./Music";
+import { useState } from "react";
 
 // import Rating from "./Rating";
 
@@ -10,6 +11,14 @@ const SingleProduct = ({ item }) => {
     state: { cart },
     dispatch,
   } = CartState();
+
+  const [cartRecords, setCartRecords] = useState(cart);
+
+  function onAdd(product) {
+    console.log("add to cart");
+    setCartRecords([...cartRecords, product]);
+    console.log(cartRecords.length);
+  }
   return (
     <div className="products">
       <Card>
