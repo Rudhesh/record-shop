@@ -195,6 +195,9 @@ form .form-inner .form-group {
   box-shadow: inset 0px 0px 14px -3px #f2fadc;
   text-shadow: inset 0px 1px 0px #ced9bf;
   background: linear-gradient(#dbe6c4, #9ba892);
+.player {
+  position: fixed;
+  bottom: 0px;
 }
 
 .submit:hover {
@@ -202,7 +205,7 @@ form .form-inner .form-group {
 }
 /* ===================================== */
 .c-player {
-  background-color: #3b3b3b;
+  background-color: #3b3b3bc2;
   width: 100vw;
   display: flex;
   justify-content: space-evenly;

@@ -4,13 +4,18 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Home } from "./Home";
 import { About } from "./About";
 import { Contact } from "./Contact";
-import { Genre } from "./Genre";
+import Genre from "./Genre";
 import { Navigation } from "./components/Player/Navigation";
+<<<<<<< HEAD
 import { Cart } from "./Cart";
 import Theme from "./components/Theme";
 import React, { useState } from 'react'
 import LoginForm from './component/LoginForm';
 import SignupForm from './component/SignupForm'
+=======
+import Cart from "./Cart";
+import CourseItem from "./components/Player/CourseItem";
+>>>>>>> 7992c0618209b93df33b47e7ee747c0ffa1b458b
 
 
 
@@ -46,6 +51,7 @@ const App = () => {
 
 
   return (
+<<<<<<< HEAD
     <div>
      <div className="App">
       {(user.email != "") ? (
@@ -90,6 +96,27 @@ const App = () => {
       </Switch>
     </BrowserRouter>
     </div>
+=======
+    <>
+      <BrowserRouter>
+        <div className="theme">
+          <Navigation />
+        </div>
+        <Switch>
+          <Route exact path="/" component={Home} />
+
+          <Route exact path="/about" component={About} />
+
+          <Route path="/genre" component={Genre} />
+
+          <Route exact path="/contact" component={Contact} />
+
+          <Route exact path="/cart" component={Cart} />
+          <ReadyPlayer />
+        </Switch>
+      </BrowserRouter>
+    </>
+>>>>>>> 7992c0618209b93df33b47e7ee747c0ffa1b458b
   );
 };
 
