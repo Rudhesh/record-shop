@@ -18,6 +18,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { CartState } from "../../Context/Context";
 import "./styles.css";
+import "../../App.css"
 
 export const Navigation = () => {
   const {
@@ -29,22 +30,22 @@ export const Navigation = () => {
     <>
       <Navbar bg="light" variant="light">
         <Navbar.Brand href="#">
-          <h3>
-            <span>SECRET TRACK</span> RECORD STORE
+          <h3 className="title">
+            <span className="title">SECRET TRACK</span> RECORD STORE
           </h3>
         </Navbar.Brand>
         <div style={{ display: "block" }}>
           <div style={{ display: "flex" }}>
             {" "}
             <Nav style={{ marginTop: "18px" }}>
-              <NavLink exact to="/">
+              <NavLink className="navBarText" exact to="/">
                 HOME
               </NavLink>{" "}
-              <NavLink exact to="/about">
+              <NavLink className="navBarText" exact to="/about">
                 ABOUT
               </NavLink>{" "}
-              <NavLink to="/genre">GENRE</NavLink>{" "}
-              <NavLink exact to="/contact">
+              <NavLink  className="navBarText" to="/genre">GENRE</NavLink>{" "}
+              <NavLink  className="navBarText" exact to="/contact">
                 CONTACT
               </NavLink>{" "}
             </Nav>

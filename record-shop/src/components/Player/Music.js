@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { FaPlay,FaPause } from "react-icons/fa";
+
 
 const useAudio = (url) => {
   const [audio] = useState(new Audio(url));
@@ -25,8 +27,8 @@ const Music = ({ url }) => {
 
   return (
     <div>
-      <button type="button" class="btn btn-primary music" onClick={toggle}>
-        {playing ? "Music: Pause" : "Music: Play"}
+      <button type="button" class="btnPlayer" onClick={toggle}>
+        {playing ? <FaPause /> : <FaPlay />}
       </button>
     </div>
   );

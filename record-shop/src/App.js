@@ -25,6 +25,7 @@ const App = () => {
 
           <Route exact path="/contact" component={Contact} />
 
+          <Route exact path="/cart" component={Cart} />
           <ReadyPlayer />
         </Switch>
       </BrowserRouter>
