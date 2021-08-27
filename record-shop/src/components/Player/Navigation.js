@@ -19,6 +19,7 @@ import {
 import { CartState } from "../../Context/Context";
 import "./styles.css";
 import "../../App.css";
+import Login from "../../Login";
 
 export const Navigation = () => {
   const {
@@ -28,7 +29,7 @@ export const Navigation = () => {
   } = CartState();
   return (
     <>
-      <Navbar bg="light" variant="light">
+      <Navbar bg="light" variant="light" className="smallNav">
         <Navbar.Brand href="#">
           <h3 className="title">
             <span className="title">SECRET TRACK</span> RECORD STORE
@@ -44,27 +45,42 @@ export const Navigation = () => {
               <NavLink className="navBarText" exact to="/about">
                 ABOUT
               </NavLink>{" "}
-              <NavLink exact to="/genre">
+              <NavLink className="navBarText" exact to="/genre">
                 GENRE
               </NavLink>{" "}
-              <NavLink exact to="/contact">
+              <NavLink className="navBarText" exact to="/contact">
                 CONTACT
               </NavLink>{" "}
             </Nav>
             <Navbar className="icons">
-              <Button variant="outline-success">
-                <FontAwesomeIcon icon={faUser} />
-              </Button>
+              <Dropdown>
+                <Dropdown.Toggle variant="outline-primary" id="dropdown-basic">
+                  <FontAwesomeIcon icon={faUser} />
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu>
+                  <Dropdown.Item href="#/action-1">
+                    <NavLink exact to="/login">
+                      Login
+                    </NavLink>{" "}
+                  </Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+
               <Button variant="outline-danger">
                 <FontAwesomeIcon icon={faHeart} />
               </Button>
-              <Dropdown alignRight>
+
+              <Dropdown>
                 <Dropdown.Toggle variant="outline-success" id="dropdown-basic">
                   <FontAwesomeIcon icon={faShoppingCart} />
-                  <Badge>{cart.length}</Badge>
+                  <span> {cart.length}</span>
                 </Dropdown.Toggle>
 
-                <Dropdown.Menu style={{ minWidth: "30%" }}>
+                <Dropdown.Menu
+                  className="dropdownM"
+                  style={{ minWidth: "30%" }}
+                >
                   {cart.length > 0 ? (
                     <>
                       {cart.map((items) => (

@@ -19,13 +19,13 @@ button {
   outline: none;
 }
 
-.App {
+/* .App {
   height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: gray;
-}
+} */
 form {
   display: block;
   position: relative;
@@ -92,7 +92,7 @@ form .form-inner .form-group {
   background: linear-gradient(#9ba892, #dbe6c4);
 }
 .welcome h2 {
-  color: whitesmoke;
+  color: rgb(105, 105, 105);
   font-size: 28px;
   font-weight: 500;
   justify-content: center;
@@ -179,7 +179,7 @@ form .form-inner .form-group {
   border-radius: 5px;
   padding: 1px 10px;
 }
-.input-login {
+/* .input-login {
   font-size: 20px;
   font-family: Arial;
   width: 130px;
@@ -197,19 +197,31 @@ form .form-inner .form-group {
   background: linear-gradient(#dbe6c4, #9ba892);
   position: fixed;
   bottom: 0px;
-}
+} */
 
 .input-login:hover {
   background: linear-gradient(#9ba892, #dbe6c4);
 }
 /* ===================================== */
+
+.backgroundImg {
+  border: 2px red solid;
+  display: block;
+  width: 100px;
+  max-width: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 .c-player {
-  background-color: #3b3b3bc2;
-  width: 100vw;
+  background-color: #8a8a8ac2;
+  width: 80vw;
   display: flex;
+  align-items: center;
+  border-radius: 20px;
   justify-content: space-evenly;
   padding: 20px;
-  margin-top: 5px;
+  margin: 5px auto;
 }
 
 .heading {

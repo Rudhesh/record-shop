@@ -58,6 +58,14 @@ h3 > span {
   padding: 10px;
 }
 
-.dropdown-menu {
+.dropdownM {
   width: 400%;
+  left: -250px !important;
+}
+
+.dropdown {
+  margin: 0 10px !important;
+}
+
+@media (max-width: 771px) {
 }

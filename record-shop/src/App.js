@@ -6,80 +6,37 @@ import { About } from "./About";
 import { Contact } from "./Contact";
 import Genre from "./Genre";
 import { Navigation } from "./components/Player/Navigation";
-import React, { useState } from 'react'
-import LoginForm from './component/LoginForm';
-import SignupForm from './component/SignupForm'
+import React, { useState } from "react";
 import Cart from "./Cart";
+import Login from "./Login";
 
-
-
-
-// Log In Form 
 const App = () => {
-
-  const adminUser = {
-    email: "user@user.com",
-    password: "user123"
-  }
-  const [user, setUser] = useState({ name: "", email: "" });
-  const [error, setError] = useState("");
-
-
-  const Login = details => {
-    console.log(details);
-
-    if (details.email == adminUser.email && details.password == adminUser.password) {
-      console.log("Logged In ");
-      setUser({
-        name: details.name,
-        email: details.email
-      });
-    } else {
-      alert("Details do not match")
-    }
-  }
-
-  const Logout = () => {
-    setUser({ name: "", email: "" })
-    console.log("Logout");
-  }
-
-
   return (
-     <div className="App">
-      {(user.email != "") ? (
-        <div className="welcome">
-          <h2> Welcome, <span>{user.name}</span></h2>
-          <button onClick={Logout}>Logout</button>
-        </div>
-      ) : (
-        <div style={{display:"flex", justifyContent:"space-around"}}>
-        <SignupForm/>
-        <LoginForm Login={Login} error={error} style={{marginLeft:"80px"}}/>
-        </div>
-        )}
-          <>
-      <BrowserRouter>
-        <div className="theme">
-          <Navigation />
-        </div>
-        <Switch>
-          <Route exact path="/" component={Home} />
+    <div className="App">
+      <>
+        <BrowserRouter>
+          <div className="theme">
+            <Navigation />
+          </div>
+          <Switch>
+            <Route exact path="/" component={Home} />
 
-          <Route exact path="/about" component={About} />
+            <Route exact path="/about" component={About} />
 
-          <Route path="/genre" component={Genre} />
+            <Route path="/genre" component={Genre} />
 
-          <Route exact path="/contact" component={Contact} />
+            <Route exact path="/contact" component={Contact} />
 
-          <Route exact path="/cart" component={Cart} />
-          <ReadyPlayer />
-        </Switch>
-      </BrowserRouter>
-       </>
+            <Route exact path="/cart" component={Cart} />
+
+            <Route exact path="/login" component={Login} />
+
+            <ReadyPlayer />
+          </Switch>
+        </BrowserRouter>
+      </>
     </div>
   );
 };
-
 
 export default App;

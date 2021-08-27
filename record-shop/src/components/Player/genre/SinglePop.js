@@ -9,53 +9,63 @@ const SinglePop = ({ item }) => {
     dispatch,
   } = CartState();
 
-  return (
-    <div className="products">
-      <Card>
-        <Card.Img
-          variant="top"
-          src={item.img_src}
-          alt={item.artist}
-          style={{ padding: "10px" }}
-        />
-        <Card.Body>
-          <Music url={item.src} />
-          <Card.Title>{item.title}</Card.Title>
-          <Card.Title>{item.artist}</Card.Title>
+  if (item.genre === "Pop") {
+    console.log(item.genre);
+    return (
+      <div className="products">
+        <Card>
+          <Card.Img
+            variant="top"
+            src={item.img_src}
+            alt={item.artist}
+            style={{ padding: "10px" }}
+          />
+          <Card.Body>
+            <Music url={item.src} />
+            <Card.Title className="artist">{item.artist}</Card.Title>
+            <Card.Title>
+              <h6 className="titleRecord">{item.title}</h6>
+            </Card.Title>
 
-          <Card.Subtitle style={{ paddingBottom: 10 }}>
-            <span>€ {item.price}</span>
+            <Card.Subtitle style={{ paddingBottom: 10 }}>
+              <p className="formatPrice">
+                {item.format} | {item.price} €
+              </p>
 
-            {/* <Rating rating={item.ratings} /> */}
-          </Card.Subtitle>
-          {cart.some((p) => p.id === item.id) ? (
-            <Button
-              onClick={() => {
-                dispatch({
-                  type: "REMOVE_FROM_CART",
-                  payload: item,
-                });
-              }}
-              variant="danger"
-            >
-              Remove from cart
-            </Button>
-          ) : (
-            <Button
-              onClick={() => {
-                dispatch({
-                  type: "ADD_TO_CART",
-                  payload: item,
-                });
-              }}
-            >
-              Add to cart
-            </Button>
-          )}
-        </Card.Body>
-      </Card>
-    </div>
-  );
+              {/* <Rating rating={item.ratings} /> */}
+            </Card.Subtitle>
+            {cart.some((p) => p.id === item.id) ? (
+              <button
+                className="removeFromCart"
+                onClick={() => {
+                  dispatch({
+                    type: "REMOVE_FROM_CART",
+                    payload: item,
+                  });
+                }}
+                variant="danger"
+              >
+                REMOVE FROM CART
+              </button>
+            ) : (
+              <button
+                className="addToCart"
+                onClick={() => {
+                  dispatch({
+                    type: "ADD_TO_CART",
+                    payload: item,
+                  });
+                }}
+              >
+                ADD TO CART
+              </button>
+            )}
+          </Card.Body>
+        </Card>
+      </div>
+    );
+  }
+  return <div>{null}</div>;
 };
 
 export default SinglePop;

@@ -29,9 +29,9 @@ const Music = ({ url }) => {
     <div>
       <button type="button" class="btnPlayer" onClick={toggle}>
         {playing ? (
-          <FontAwesomeIcon icon={faPlay} />
-        ) : (
           <FontAwesomeIcon icon={faPause} />
+        ) : (
+          <FontAwesomeIcon icon={faPlay} />
         )}
       </button>
     </div>

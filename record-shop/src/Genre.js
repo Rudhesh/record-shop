@@ -9,12 +9,11 @@ import {
   Route,
 } from "react-router-dom";
 import { Nav, Navbar, Container } from "react-bootstrap";
-import CourseItem from "./components/Player/CourseItem";
 import Pop from "./components/Player/genre/Pop";
 import Jazz from "./components/Player/genre/Jazz";
 import Rock from "./components/Player/genre/Rock";
 import Hiphop from "./components/Player/genre/Hiphop";
-
+import "./genre.css";
 const Genre = () => {
   const {
     state: { songs },
@@ -26,14 +25,12 @@ const Genre = () => {
     <BrowserRouter>
       <div>
         <Navbar bg="light" variant="light">
-          <Container>
-            <Nav>
-              <Link to={`${url}/pop`}>POP</Link>{" "}
-              <Link to={`${url}/jazz`}>JAZZ</Link>{" "}
-              <Link to={`${url}/rock`}>ROCK</Link>{" "}
-              <Link to={`${url}/hiphop`}>HIPHOP</Link>{" "}
-            </Nav>
-          </Container>
+          <Nav className="links">
+            <Link to={`${url}/pop`}>POP</Link>{" "}
+            <Link to={`${url}/jazz`}>JAZZ</Link>{" "}
+            <Link to={`${url}/rock`}>ROCK</Link>{" "}
+            <Link to={`${url}/hiphop`}>HIPHOP</Link>{" "}
+          </Nav>
         </Navbar>
 
         <Switch>

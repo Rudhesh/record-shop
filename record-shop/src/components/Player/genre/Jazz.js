@@ -1,7 +1,7 @@
 import React from "react";
 
-const Jazz = () => {
-  return <div>Jazzzzzz</div>;
+const Jazz = ({ item }) => {
+  return <div>jazzz</div>;
 };
 
 export default Jazz;
