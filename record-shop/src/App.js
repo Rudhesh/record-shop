@@ -9,6 +9,7 @@ import { Navigation } from "./components/Player/Navigation";
 import React, { useState } from "react";
 import Cart from "./Cart";
 import Login from "./Login";
+import "./App.css";
 
 const App = () => {
   return (
@@ -29,7 +30,7 @@ const App = () => {
 
             <Route exact path="/cart" component={Cart} />
 
-            <Route exact path="/login" component={Login} />
+            <Route exact path="/profile" component={Login} />
 
             <ReadyPlayer />
           </Switch>

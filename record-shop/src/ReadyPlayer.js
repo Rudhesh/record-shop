@@ -4,7 +4,7 @@ import { CartState } from "./Context/Context";
 import "./index.css";
 function ReadyPlayer() {
   const {
-    state: { songs },
+    state: { cart },
     setSong,
     currentSongIndex,
     setCurrentSongIndex,
@@ -14,7 +14,7 @@ function ReadyPlayer() {
 
   useEffect(() => {
     setNextSongIndex(() => {
-      if (currentSongIndex + 1 > songs.length - 1) {
+      if (currentSongIndex + 1 > cart.length - 1) {
         return 0;
       } else {
         return currentSongIndex + 1;
@@ -28,7 +28,7 @@ function ReadyPlayer() {
         currentSongIndex={currentSongIndex}
         setCurrentSongIndex={setCurrentSongIndex}
         nextSongIndex={nextSongIndex}
-        songs={songs}
+        songs={cart}
       />
     </div>
   );

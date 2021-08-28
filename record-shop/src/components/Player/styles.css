@@ -10,11 +10,15 @@
   justify-content: space-around;
 }
 
+h6 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .filters {
   background-color: rgb(245, 245, 245);
   padding: 20px;
-  margin-right: 10px;
-  height: 85vh;
 }
 
 .filters > span {
@@ -27,6 +31,24 @@
 
 .products {
   width: 300px;
+  margin: 10px;
+}
+
+.productsOne {
+  margin: 10px;
+  border: black 1px solid;
+}
+
+.body {
+  display: flex;
+}
+
+.body > img {
+  width: 100px;
+  margin: 10px;
+}
+
+.musicData {
   margin: 10px;
 }
 
@@ -99,4 +121,8 @@
   position: fixed;
   z-index: 300;
   width: 100%;
+}
+
+.offcanvas-start {
+  width: 300px !important;
 }

@@ -1,95 +1,109 @@
-.title{
-    font-family: 'Acme', sans-serif;
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-thumb {
+  background: #b3afb3;
+  border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b3afb3;
+}
+::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 0px;
+  box-shadow: inset 0px 0px 0px 0px #f0f0f0;
+}
+
+body {
+  scrollbar-width: thin;
+  scrollbar-color: blue orange;
+}
+.title {
+  font-family: "Acme", sans-serif;
 }
 
 .artist {
-    font-family: 'Acme', sans-serif;
-    margin-bottom: initial;
-    color: black;
+  font-family: "Acme", sans-serif;
+  margin-bottom: initial;
+  color: black;
 }
 
-
 .titleRecord {
-    font-family: 'Karla', sans-serif;
-    color: black;
+  font-family: "Karla", sans-serif;
+  color: black;
 }
 
 .formatPrice {
-    font-family: 'Actor', sans-serif;
-    color: #65635F;
+  font-family: "Actor", sans-serif;
+  color: #65635f;
 }
 
 .navBarText {
-    font-family: 'Karla', sans-serif;
+  font-family: "Karla", sans-serif;
 }
 
 .addToCart {
-    background-color: white;
-    font-family: 'Actor', sans-serif;
-    padding: 5px 15px;
-    border: 1px solid black;
-    border-radius: 10px;
-    
-
+  background-color: white;
+  font-family: "Actor", sans-serif;
+  padding: 5px 15px;
+  border: 1px solid black;
+  border-radius: 10px;
 }
 
 .removeFromCart {
-    background-color: white;
-    color: violet;
-    font-family: 'Actor', sans-serif;
-    padding: 5px 15px;
-    border: 1px solid black;
-    border-radius: 10px;
-
+  background-color: white;
+  color: violet;
+  font-family: "Actor", sans-serif;
+  padding: 5px 15px;
+  border: 1px solid black;
+  border-radius: 10px;
 }
-
 
 .btnPlayer {
-    font-size: 30px;
-    color: white;
-    position: absolute;
-    top:120px;
-    left: 120px;
-    width: 70px;
-    height: 70px;
-    border: none;
-    background-color: rgba(8, 7, 7, 0.589);
-    border-radius: 50px;
-}
-
-
-.contact p{
-    color: black;
-}
-
-.contact{
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    margin-top: 100px
-}
-
-.contact div{
-    margin: auto;
-    padding-top: 15px;
-    
-}
-
-.contact h1 {
-    font-family: 'Acme', sans-serif;
-    font-size: 3em;
-}
-
-.contact h3 {
-    font-family: 'Acme', sans-serif;
+  font-size: 30px;
+  color: white;
+  position: absolute;
+  top: 120px;
+  left: 120px;
+  width: 70px;
+  height: 70px;
+  border: none;
+  background-color: rgba(8, 7, 7, 0.589);
+  border-radius: 50px;
 }
 
 .contact p {
-    font-family: 'Karla', sans-serif;
-    margin-bottom: 0px;
+  color: black;
+}
+
+.contact {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+}
+
+.contact div {
+  margin: auto;
+  padding-top: 15px;
+}
+
+.contact h1 {
+  font-family: "Acme", sans-serif;
+  font-size: 3em;
+}
+
+.contact h3 {
+  font-family: "Acme", sans-serif;
+}
+
+.contact p {
+  font-family: "Karla", sans-serif;
+  margin-bottom: 0px;
 }
 .contact a {
-    font-family: 'Karla', sans-serif;
-    margin-bottom: 0px;
-    color: black;
+  font-family: "Karla", sans-serif;
+  margin-bottom: 0px;
+  color: black;
 }

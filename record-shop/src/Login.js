@@ -4,6 +4,8 @@ import SignupForm from "./component/SignupForm";
 import Player from "./components/Player/Player";
 import { CartState } from "./Context/Context";
 import ReadyPlayer from "./ReadyPlayer";
+import { Alert, Button } from "react-bootstrap";
+import SingleProduct2 from "./components/Player/SingleProduct2";
 
 const Login = () => {
   const {
@@ -35,33 +37,34 @@ const Login = () => {
       });
     } else {
       alert("Details do not match");
+      <Alert variant="success">hello</Alert>;
     }
   };
 
-  const Logout = () => {
-    setUser({ name: "", email: "" });
-    console.log("Logout");
-  };
-
   return (
-    <div>
+    <div className="profilePage">
       {user.email != "" ? (
-        <div className="welcome">
-          <h2>
-            {" "}
-            Welcome, <span>{user.name}</span>
-          </h2>
-          <button onClick={Logout}>Logout</button>
+        <>
+          <div className="welcome">
+            <div className="profile">
+              <img src={"/images/dog.jpg"} alt="" />
+              <h2>
+                {" "}
+                Welcome, <span>{user.name}</span>
+              </h2>
+              <div className="productContainer">
+                {cart.map((item) => {
+                  return <SingleProduct2 item={item} key={item.id} />;
+                })}
+              </div>
+            </div>
+          </div>
           <ReadyPlayer />;
-        </div>
+        </>
       ) : (
-        <div style={{ display: "flex", justifyContent: "space-around" }}>
+        <div>
           {/* <SignupForm /> */}
-          <LoginForm
-            Login={Login}
-            error={error}
-            style={{ marginLeft: "80px" }}
-          />
+          <LoginForm Login={Login} error={error} />
         </div>
       )}
     </div>

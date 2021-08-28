@@ -26,7 +26,10 @@ export const Navigation = () => {
     state: { cart },
     dispatch,
     productDispatch,
+    Logout,
+    user,
   } = CartState();
+
   return (
     <>
       <Navbar bg="light" variant="light" className="smallNav">
@@ -60,10 +63,13 @@ export const Navigation = () => {
 
                 <Dropdown.Menu>
                   <Dropdown.Item href="#/action-1">
-                    <NavLink exact to="/login">
-                      Login
+                    <NavLink exact to="/profile">
+                      Profile
                     </NavLink>{" "}
                   </Dropdown.Item>
+                  {user.email ? (
+                    <Dropdown.Item onClick={Logout}> Logout</Dropdown.Item>
+                  ) : null}
                 </Dropdown.Menu>
               </Dropdown>
 

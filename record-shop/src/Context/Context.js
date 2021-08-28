@@ -314,7 +314,20 @@ export const Context = ({ children }) => {
 
   const [state, dispatch] = useReducer(cartReducer, {
     songs: songs,
-    cart: [],
+    cart: [
+      {
+        id: 1,
+        title: "Forget me too ft. Halsey",
+        artist: "Machine Gun Kelly",
+        genre: "Pop",
+        img_src: "/images/song-1.jpg",
+        src: "./music/on-n-on.mp3",
+        price: 44,
+
+        quantity: 1,
+        genre: "Hip Hop",
+      },
+    ],
   });
 
   const [productState, productDispatch] = useReducer(productReducer, {
@@ -328,10 +341,17 @@ export const Context = ({ children }) => {
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [nextSongIndex, setNextSongIndex] = useState(0);
 
+  const [isPlaying, setIsPlaying] = useState(false);
+
   const [show, setShow] = useState(false);
 
   const [user, setUser] = useState({ name: "", email: "" });
   const [error, setError] = useState("");
+
+  const Logout = () => {
+    setUser({ name: "", email: "" });
+    console.log("Logout");
+  };
 
   return (
     <div>
@@ -353,6 +373,9 @@ export const Context = ({ children }) => {
           setUser,
           error,
           setError,
+          Logout,
+          isPlaying,
+          setIsPlaying,
         }}
       >
         {children}

@@ -27,10 +27,12 @@ const Filter = () => {
           <Offcanvas.Header closeButton>
             <Offcanvas.Title>
               {" "}
-              <span className="title"> Sort by price</span>
+              <span className="title"> Filter Products</span>
             </Offcanvas.Title>
           </Offcanvas.Header>
+
           <Offcanvas.Body className="content">
+            <Offcanvas.Title> Sort by price</Offcanvas.Title>
             <span>
               <Form.Check
                 inline
