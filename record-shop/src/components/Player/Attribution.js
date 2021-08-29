@@ -1,10 +1,11 @@
 import React from "react";
+import "./Attribution.css";
 
 const Attribution = () => {
   return (
-    <div className={"Attribution"}>
+    <div className="Attribution">
       <h3>Attribution</h3>
-      <div className={"Attribution-div"}>
+      <div className="Attribution-div">
         <div className="Attribution-text">
           Icons made by
           <a href="http://www.freepik.com/" title="Freepik">

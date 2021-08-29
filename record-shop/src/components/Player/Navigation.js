@@ -28,7 +28,7 @@ import Login from "../../Login";
 
 export const Navigation = () => {
   const {
-    state: { cart },
+    state: { cart, favorite },
     dispatch,
     productDispatch,
     Logout,
@@ -80,6 +80,13 @@ export const Navigation = () => {
 
               <Button variant="outline-danger">
                 <FontAwesomeIcon icon={faHeart} />
+
+                <span
+                  className={favorite.length === 1 ? null : "favoriteCount"}
+                >
+                  {" "}
+                  {favorite.length === 1 ? null : favorite.length}
+                </span>
               </Button>
 
               <Dropdown>

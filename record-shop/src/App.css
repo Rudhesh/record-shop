@@ -79,7 +79,8 @@
   text-align: center;
   display: flex;
   flex-direction: column;
-  margin-top: 100px;
+  margin: 200px;
+  height: 80vh;
 }
 
 .contact div {
