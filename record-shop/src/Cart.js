@@ -21,7 +21,7 @@ const Cart = () => {
   const totalPrice = subTotal + shippingPrice;
 
   useEffect(() => {
-    setTotal(totalPrice);
+    setTotal(totalPrice.toFixed(2));
   }, [cart]);
 
   return (
@@ -110,9 +110,7 @@ const Cart = () => {
           <option>Pick up at the store</option>
         </Form.Control>
         <hr></hr>
-        <h3>
-          Total<span>{total}</span>
-        </h3>
+        <h3>Total {total}</h3>
         <span>Tax included</span>
         <br />
         <Button type="button" disabled={cart.length === 0}>

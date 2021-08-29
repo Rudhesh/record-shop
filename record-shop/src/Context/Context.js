@@ -1,4 +1,4 @@
-import React, { useContext, useReducer, useState } from "react";
+import React, { useContext, useEffect, useReducer, useState } from "react";
 import { cartReducer, productReducer } from "./Reducers";
 
 const ShoppingCart = React.createContext();
@@ -48,7 +48,7 @@ export const Context = ({ children }) => {
       id: 14,
       title: "Stylish Tantrum",
       artist: "Roza Terenzi",
-      genre: "	Electronic / Dance",
+      genre: "Electronic / Dance",
       format: 'Vinyl 12"',
       releaseDate: 2020,
       img_src: "/images/RozaTerenzi.jpg",
@@ -61,7 +61,7 @@ export const Context = ({ children }) => {
       id: 15,
       title: "Summer Love Gherking Jerks Aka Larry Heard Remixes",
       artist: "Basic Realities",
-      genre: "	Electronic / Dance",
+      genre: "Electronic / Dance",
       format: 'Vinyl 12"',
       releaseDate: 2021,
       img_src: "/images/LarryHeard.jpg",
@@ -314,8 +314,9 @@ export const Context = ({ children }) => {
 
   const [state, dispatch] = useReducer(cartReducer, {
     songs: songs,
-    cart: [
+    favorite: [
       {
+        completed: false,
         id: 1,
         title: "Forget me too ft. Halsey",
         artist: "Machine Gun Kelly",
@@ -323,11 +324,11 @@ export const Context = ({ children }) => {
         img_src: "/images/song-1.jpg",
         src: "./music/on-n-on.mp3",
         price: 44,
-
         quantity: 1,
-        genre: "Hip Hop",
+        genre: "Hiphop",
       },
     ],
+    cart: [],
   });
 
   const [productState, productDispatch] = useReducer(productReducer, {

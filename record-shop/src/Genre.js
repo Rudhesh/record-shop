@@ -26,8 +26,7 @@ const Genre = () => {
       <div>
         <Navbar bg="light" variant="light">
           <Nav className="links">
-            <Link to={`${url}/pop`}>POP</Link>{" "}
-            <Link to={`${url}/jazz`}>JAZZ</Link>{" "}
+            <Link to={`${url}`}>POP</Link> <Link to={`${url}/jazz`}>JAZZ</Link>{" "}
             <Link to={`${url}/rock`}>ROCK</Link>{" "}
             <Link to={`${url}/hiphop`}>HIPHOP</Link>{" "}
           </Nav>
@@ -37,7 +36,7 @@ const Genre = () => {
           {/* <Route exact path={`${path}/:genre`}>
             <CourseItem />
           </Route> */}
-          <Route exact path={`${path}/pop`} component={Pop} />
+          <Route exact path={`${path}`} component={Pop} />
           <Route exact path={`${path}/jazz`} component={Jazz} />
           <Route exact path={`${path}/rock`} component={Rock} />
           <Route exact path={`${path}/hiphop`} component={Hiphop} />

@@ -1,5 +1,15 @@
 import React from "react";
+import { Container } from "react-bootstrap";
+import Attribution from "./components/Player/Attribution";
+import Developer from "./components/Player/Developer";
 
 export const About = () => {
-  return <div>About11</div>;
+  return (
+    <Container>
+      <div className="About">
+        <Developer />
+        <Attribution />
+      </div>
+    </Container>
+  );
 };

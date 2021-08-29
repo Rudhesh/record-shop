@@ -1,11 +1,13 @@
 import React from "react";
-import { Button, Card } from "react-bootstrap";
+import { makeStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
+import { Card } from "react-bootstrap";
 import { CartState } from "../../Context/Context";
 import Music from "./Music";
 
 const SingleProduct = ({ item }) => {
   const {
-    state: { cart },
+    state: { cart, favorite },
     dispatch,
   } = CartState();
 
@@ -29,24 +31,22 @@ const SingleProduct = ({ item }) => {
             <p className="formatPrice">
               {item.format} | {item.price} €
             </p>
-
-            {/* <Rating rating={item.ratings} /> */}
           </Card.Subtitle>
           {cart.some((p) => p.id === item.id) ? (
-            <button
+            <Button
               className="removeFromCart"
+              color="secondary"
               onClick={() => {
                 dispatch({
                   type: "REMOVE_FROM_CART",
                   payload: item,
                 });
               }}
-              variant="danger"
             >
-              REMOVE FROM CART
-            </button>
+              REMOVE
+            </Button>
           ) : (
-            <button
+            <Button
               className="addToCart"
               onClick={() => {
                 dispatch({
@@ -56,8 +56,19 @@ const SingleProduct = ({ item }) => {
               }}
             >
               ADD TO CART
-            </button>
+            </Button>
           )}
+          <Button
+            className="favorite"
+            onClick={() => {
+              dispatch({
+                type: "FAVORITE",
+                payload: item,
+              });
+            }}
+          >
+            Favorite
+          </Button>
         </Card.Body>
       </Card>
     </div>

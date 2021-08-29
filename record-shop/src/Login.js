@@ -6,10 +6,13 @@ import { CartState } from "./Context/Context";
 import ReadyPlayer from "./ReadyPlayer";
 import { Alert, Button } from "react-bootstrap";
 import SingleProduct2 from "./components/Player/SingleProduct2";
+import { Favorite } from "@material-ui/icons";
 
-const Login = () => {
+const Login = (details) => {
+  console.log(details);
+
   const {
-    state: { cart },
+    state: { favorite },
     user,
     setUser,
     error,
@@ -23,7 +26,7 @@ const Login = () => {
   //   const [user, setUser] = useState({ name: "", email: "" });
   //   const [error, setError] = useState("");
 
-  const Login = (details) => {
+  const LoginDetails = (details) => {
     console.log(details);
 
     if (
@@ -37,14 +40,14 @@ const Login = () => {
       });
     } else {
       alert("Details do not match");
-      <Alert variant="success">hello</Alert>;
+      return <Alert variant="success">hello</Alert>;
     }
   };
 
   return (
     <div className="profilePage">
       {user.email != "" ? (
-        <>
+        <div className="favoritePlayer">
           <div className="welcome">
             <div className="profile">
               <img src={"/images/dog.jpg"} alt="" />
@@ -53,18 +56,18 @@ const Login = () => {
                 Welcome, <span>{user.name}</span>
               </h2>
               <div className="productContainer">
-                {cart.map((item) => {
+                {favorite.map((item) => {
                   return <SingleProduct2 item={item} key={item.id} />;
                 })}
               </div>
             </div>
           </div>
           <ReadyPlayer />;
-        </>
+        </div>
       ) : (
-        <div>
+        <div className="loginBox">
           {/* <SignupForm /> */}
-          <LoginForm Login={Login} error={error} />
+          <LoginForm Login={LoginDetails} error={error} />
         </div>
       )}
     </div>

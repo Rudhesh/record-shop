@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect, useContext } from "react";
 import Controls from "./Controls";
 import Details from "./Details";
+import Image from "react-bootstrap/Image";
 
 function Player(props) {
   const audioEl = useRef(null);
@@ -39,10 +40,13 @@ function Player(props) {
       });
     }
   };
+  // console.log(props.songs);
+
+  console.log(props.songs);
 
   return (
     <div className="backgroundImg">
-      <img src={props.songs[props.currentSongIndex].img_src} alt="" />
+      <Image src={props.songs[props.currentSongIndex].img_src} rounded />
       <div className="c-player">
         <div>
           <audio

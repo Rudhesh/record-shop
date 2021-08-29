@@ -1,5 +1,8 @@
 import React from "react";
-import { Button, Card } from "react-bootstrap";
+import { Card } from "react-bootstrap";
+import { Button, IconButton } from "@material-ui/core";
+import CloseIcon from "@material-ui/icons/Close";
+
 import { CartState } from "../../Context/Context";
 import Music from "./Music";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -22,7 +25,7 @@ const SingleProduct2 = ({ item }) => {
   return (
     <div className="productsOne">
       <div>
-        <div className="body">
+        <div className="boxBody">
           <img
             variant="top"
             src={item.img_src}
@@ -31,36 +34,27 @@ const SingleProduct2 = ({ item }) => {
           />
 
           <section className="musicData">
-            <p className="artist">{item.artist}</p>
+            <div>
+              <p className="artist">{item.artist}</p>
 
-            <p className="titleRecord">{item.title}</p>
-            {cart.some((p) => p.id === item.id) ? (
-              <button
+              <p className="titleRecord">{item.title}</p>
+            </div>
+            <span>
+              <IconButton
                 className="removeFromCart"
                 onClick={() => {
                   dispatch({
-                    type: "REMOVE_FROM_CART",
+                    type: "REMOVE_FAVORITE",
                     payload: item,
                   });
                 }}
                 variant="danger"
               >
-                REMOVE
-              </button>
-            ) : (
-              <button
-                className="addToCart"
-                onClick={() => {
-                  dispatch({
-                    type: "ADD_TO_CART",
-                    payload: item,
-                  });
-                }}
-              >
-                ADD TO CART
-              </button>
-            )}
+                <CloseIcon />
+              </IconButton>
+            </span>
           </section>
+
           {/* <button className="play-btn" onClick={() => setIsPlaying(!isPlaying)}>
             <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} />
           </button> */}

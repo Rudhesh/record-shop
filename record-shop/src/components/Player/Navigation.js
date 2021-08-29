@@ -21,6 +21,11 @@ import "./styles.css";
 import "../../App.css";
 import Login from "../../Login";
 
+// import Button from "@material-ui/core/Button";
+// import Menu from "@material-ui/core/Menu";
+// import MenuItem from "@material-ui/core/MenuItem";
+// import { makeStyles } from "@material-ui/core/styles";
+
 export const Navigation = () => {
   const {
     state: { cart },
@@ -45,11 +50,11 @@ export const Navigation = () => {
               <NavLink className="navBarText" exact to="/">
                 HOME
               </NavLink>{" "}
-              <NavLink className="navBarText" exact to="/about">
-                ABOUT
-              </NavLink>{" "}
               <NavLink className="navBarText" exact to="/genre">
                 GENRE
+              </NavLink>{" "}
+              <NavLink className="navBarText" exact to="/about">
+                ABOUT
               </NavLink>{" "}
               <NavLink className="navBarText" exact to="/contact">
                 CONTACT
@@ -80,7 +85,10 @@ export const Navigation = () => {
               <Dropdown>
                 <Dropdown.Toggle variant="outline-success" id="dropdown-basic">
                   <FontAwesomeIcon icon={faShoppingCart} />
-                  <span> {cart.length}</span>
+                  <span className={cart.length === 0 ? null : "cartCount"}>
+                    {" "}
+                    {cart.length === 0 ? null : cart.length}
+                  </span>
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu
@@ -129,6 +137,7 @@ export const Navigation = () => {
           </div>
           <Navbar.Text className="search">
             <FormControl
+              size="sm"
               style={{ width: 500 }}
               placeholder="Search a product"
               className="m-auto"

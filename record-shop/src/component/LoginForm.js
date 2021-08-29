@@ -17,7 +17,7 @@ function LoginForm({ Login, error }) {
       <Form onSubmit={submitHandler}>
         <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
           <Form.Label column sm={2}>
-            Name:
+            Name
           </Form.Label>
           <Col sm="10">
             <Form.Control
@@ -32,7 +32,7 @@ function LoginForm({ Login, error }) {
 
         <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
           <Form.Label column sm={2}>
-            Email:
+            Email
           </Form.Label>
           <Col sm="10">
             <Form.Control
@@ -53,7 +53,7 @@ function LoginForm({ Login, error }) {
           controlId="formHorizontalPassword"
         >
           <Form.Label column sm={2}>
-            Password:..........
+            Password
           </Form.Label>
           <Col sm="10">
             <Form.Control

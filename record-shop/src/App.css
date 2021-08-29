@@ -15,10 +15,6 @@
   box-shadow: inset 0px 0px 0px 0px #f0f0f0;
 }
 
-body {
-  scrollbar-width: thin;
-  scrollbar-color: blue orange;
-}
 .title {
   font-family: "Acme", sans-serif;
 }
@@ -47,17 +43,19 @@ body {
   background-color: white;
   font-family: "Actor", sans-serif;
   padding: 5px 15px;
-  border: 1px solid black;
+  border: 1px solid rgb(116, 116, 116);
   border-radius: 10px;
+  font-size: 15px;
 }
 
 .removeFromCart {
   background-color: white;
   color: violet;
   font-family: "Actor", sans-serif;
-  padding: 5px 15px;
+  padding: 5px 10px;
   border: 1px solid black;
-  border-radius: 10px;
+  border-radius: 5px;
+  font-size: 12px;
 }
 
 .btnPlayer {
@@ -106,4 +104,8 @@ body {
   font-family: "Karla", sans-serif;
   margin-bottom: 0px;
   color: black;
+}
+
+.favorite {
+  float: right;
 }

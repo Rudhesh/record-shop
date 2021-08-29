@@ -1,14 +1,20 @@
+.App {
+  background-color: rgb(255, 235, 245);
+}
+
 .profilePage {
-  scroll-behavior: smooth;
-  display: flex;
-  justify-content: space-between;
+  height: 90vh;
 }
 
 .login {
-  border: 1px solid rgb(0, 0, 0);
   margin-top: 10%;
   padding: 50px;
-  border-radius: 10px;
+  box-shadow: 1px 1px 5px rgb(200, 200, 200);
+  background-color: white;
+  border-radius: 3px;
+  width: 600px;
+  /* display: flex;
+  align-content: center; */
 }
 
 .login button {
@@ -22,7 +28,7 @@
   background-color: rgb(250, 250, 250);
   position: absolute;
   width: 500px;
-  height: 80vh;
+  height: 90vh;
   overflow-y: scroll;
 }
 
@@ -42,11 +48,23 @@
 .backgroundImg {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   align-items: center;
   align-content: space-between;
+  /* position: absolute;
+  top: 0;
+  right: 0; */
 }
 .backgroundImg > img {
   width: 400px;
   margin: 60px;
+}
+
+.loginBox {
+  display: flex;
+  justify-content: center;
+}
+
+.favoritePlayer {
+  display: flex;
+  justify-content: space-between;
 }
