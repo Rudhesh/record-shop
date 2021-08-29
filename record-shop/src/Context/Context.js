@@ -7,6 +7,15 @@ export const Context = ({ children }) => {
   const songs = [
     {
       id: 11,
+<<<<<<< HEAD
+      title:"Fidelity Radio Club",
+      artist:"S.Fidelity",
+      genre:"	Electronic / Dance",
+      format:	'Vinyl 12"',
+      releaseDate:	2021,
+      img_src: "./images/S.Fidelity2.jpg",
+      src:"./music/S. Fidelity Me At The Zoo (Cody Currie Remix) (feat. Àbáse).mp3",
+=======
       title: "Fidelity Radio Club",
       artist: "S.Fidelity",
       genre: "Electronic / Dance",
@@ -14,12 +23,22 @@ export const Context = ({ children }) => {
       releaseDate: 2021,
       img_src: "/images/S.Fidelity2.jpg",
       src: "",
+>>>>>>> 6fbe735fb3779d0289bd44a1b038e04c0ab50715
       price: 12.99,
       rating: 4,
     },
 
     {
       id: 12,
+<<<<<<< HEAD
+      title:"A Safe Place To Be Naked",
+      artist:"S.Fidelity",
+      genre:"	Hip Hop",
+      format:	"Vinyl LP",
+      releaseDate:	2017,
+      img_src: "./images/S.Fidelity3.jpg",
+      src:"./music/PPP (feat. Harleighblu).mp3",
+=======
       title: "A Safe Place To Be Naked",
       artist: "S.Fidelity",
       genre: "Hip Hop",
@@ -27,12 +46,22 @@ export const Context = ({ children }) => {
       releaseDate: 2017,
       img_src: "/images/S.Fidelity3.jpg",
       src: "",
+>>>>>>> 6fbe735fb3779d0289bd44a1b038e04c0ab50715
       price: 15.29,
       rating: 5,
     },
 
     {
       id: 13,
+<<<<<<< HEAD
+      title:"IGOR",
+      artist:"Tyler, The Creator",
+      genre:"Hip Hop",
+      format:	"Vinyl LP",
+      releaseDate:	2019,
+      img_src: "./images/Tyler.jpg",
+      src:"./music/Tyler The Creator - Earfquake.mp3",
+=======
       title: "IGOR",
       artist: "Tyler, The Creator",
       genre: "Hip Hop",
@@ -40,12 +69,34 @@ export const Context = ({ children }) => {
       releaseDate: 2019,
       img_src: "/images/Tyler.jpg",
       src: "",
+>>>>>>> 6fbe735fb3779d0289bd44a1b038e04c0ab50715
       price: 34.99,
       rating: 5,
     },
 
     {
       id: 14,
+<<<<<<< HEAD
+      title:"Stylish Tantrum",
+      artist:"Roza Terenzi",
+      genre:"	Electronic / Dance",
+      format:	'Vinyl 12"',
+      releaseDate:	2020,
+      img_src: "./images/RozaTerenzi.jpg",
+      src:"./music/Roza Terenzi - That Track (Rewired Mix).mp3",
+      price: 11.99,
+      rating: 2,
+    },
+    {
+      id: 30,
+      title:"S P A C E",
+      artist:"Amber Mark",
+      genre:"Soul",
+      format:	'Vinyl LP',
+      releaseDate:	2019,
+      img_src: "./images/AmberMark.png",
+      src:"./music/Amber Mark - S P A C E.mp3",
+=======
       title: "Stylish Tantrum",
       artist: "Roza Terenzi",
       genre: "Electronic / Dance",
@@ -53,12 +104,22 @@ export const Context = ({ children }) => {
       releaseDate: 2020,
       img_src: "/images/RozaTerenzi.jpg",
       src: "",
+>>>>>>> 6fbe735fb3779d0289bd44a1b038e04c0ab50715
       price: 11.99,
       rating: 2,
     },
 
     {
       id: 15,
+<<<<<<< HEAD
+      title:"Summer Love Gherking Jerks Aka Larry Heard Remixes",
+      artist:"Basic Realities",
+      genre:"	Electronic / Dance",
+      format:	'Vinyl 12"',
+      releaseDate:	2021,
+      img_src: "./images/LarryHeard.jpg",
+      src:"./music/Larry Heard Presents Mr. White The Sun Can't Compare (Long Version).mp3",
+=======
       title: "Summer Love Gherking Jerks Aka Larry Heard Remixes",
       artist: "Basic Realities",
       genre: "Electronic / Dance",
@@ -66,6 +127,7 @@ export const Context = ({ children }) => {
       releaseDate: 2021,
       img_src: "/images/LarryHeard.jpg",
       src: "",
+>>>>>>> 6fbe735fb3779d0289bd44a1b038e04c0ab50715
       price: 10.99,
       rating: 3,
     },
@@ -354,9 +416,14 @@ export const Context = ({ children }) => {
     console.log("Logout");
   };
 
+  const [styling, setStyling] = useState("light")
+
   return (
     <div>
       <ShoppingCart.Provider
+<<<<<<< HEAD
+        value={{ state, dispatch, productState, productDispatch, styling, setStyling }}
+=======
         value={{
           state,
           dispatch,
@@ -378,6 +445,7 @@ export const Context = ({ children }) => {
           isPlaying,
           setIsPlaying,
         }}
+>>>>>>> 6fbe735fb3779d0289bd44a1b038e04c0ab50715
       >
         {children}
       </ShoppingCart.Provider>

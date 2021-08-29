@@ -50,6 +50,10 @@ export const Navigation = () => {
               <NavLink className="navBarText" exact to="/">
                 HOME
               </NavLink>{" "}
+<<<<<<< HEAD
+              <NavLink  className="navBarText" to="/genre">GENRE</NavLink>{" "}
+              <NavLink  className="navBarText" exact to="/contact">
+=======
               <NavLink className="navBarText" exact to="/genre">
                 GENRE
               </NavLink>{" "}
@@ -57,6 +61,7 @@ export const Navigation = () => {
                 ABOUT
               </NavLink>{" "}
               <NavLink className="navBarText" exact to="/contact">
+>>>>>>> 6fbe735fb3779d0289bd44a1b038e04c0ab50715
                 CONTACT
               </NavLink>{" "}
             </Nav>
