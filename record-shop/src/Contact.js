@@ -5,6 +5,7 @@ export const Contact = () => {
   return <div className="contact">
 
     <h1>INFO & CONTACTS</h1>
+    <p className="paragraphe">Bonjour</p>
     
     
     <div>

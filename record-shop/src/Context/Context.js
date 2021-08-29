@@ -14,7 +14,7 @@ export const Context = ({ children }) => {
       format:	'Vinyl 12"',
       releaseDate:	2021,
       img_src: "./images/S.Fidelity2.jpg",
-      src:"",
+      src:"./music/S. Fidelity Me At The Zoo (Cody Currie Remix) (feat. Àbáse).mp3",
       price: 12.99,
       rating: 4,
     },
@@ -27,7 +27,7 @@ export const Context = ({ children }) => {
       format:	"Vinyl LP",
       releaseDate:	2017,
       img_src: "./images/S.Fidelity3.jpg",
-      src:"",
+      src:"./music/PPP (feat. Harleighblu).mp3",
       price: 15.29,
       rating: 5,
     },
@@ -40,7 +40,7 @@ export const Context = ({ children }) => {
       format:	"Vinyl LP",
       releaseDate:	2019,
       img_src: "./images/Tyler.jpg",
-      src:"",
+      src:"./music/Tyler The Creator - Earfquake.mp3",
       price: 34.99,
       rating: 5,
     },
@@ -53,7 +53,19 @@ export const Context = ({ children }) => {
       format:	'Vinyl 12"',
       releaseDate:	2020,
       img_src: "./images/RozaTerenzi.jpg",
-      src:"",
+      src:"./music/Roza Terenzi - That Track (Rewired Mix).mp3",
+      price: 11.99,
+      rating: 2,
+    },
+    {
+      id: 30,
+      title:"S P A C E",
+      artist:"Amber Mark",
+      genre:"Soul",
+      format:	'Vinyl LP',
+      releaseDate:	2019,
+      img_src: "./images/AmberMark.png",
+      src:"./music/Amber Mark - S P A C E.mp3",
       price: 11.99,
       rating: 2,
     },
@@ -66,7 +78,7 @@ export const Context = ({ children }) => {
       format:	'Vinyl 12"',
       releaseDate:	2021,
       img_src: "./images/LarryHeard.jpg",
-      src:"",
+      src:"./music/Larry Heard Presents Mr. White The Sun Can't Compare (Long Version).mp3",
       price: 10.99,
       rating: 3,
     },
@@ -354,10 +366,12 @@ export const Context = ({ children }) => {
   // const [currentSongIndex, setCurrentSongIndex] = useState(0);
   // const [nextSongIndex, setNextSongIndex] = useState(0);
 
+  const [styling, setStyling] = useState("light")
+
   return (
     <div>
       <ShoppingCart.Provider
-        value={{ state, dispatch, productState, productDispatch }}
+        value={{ state, dispatch, productState, productDispatch, styling, setStyling }}
       >
         {children}
       </ShoppingCart.Provider>

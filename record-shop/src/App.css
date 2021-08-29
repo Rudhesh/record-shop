@@ -2,6 +2,22 @@
     font-family: 'Acme', sans-serif;
 }
 
+.paragraphe {
+    color: red;
+    text-decoration: underline;
+    font-size: 50px;
+}
+
+
+.imageRecordDark {
+    width: 279px;
+    height: 279px;
+    position: absolute;
+    margin-left: 10px;
+    margin-top: 10px;
+    background-color: rgba(8, 7, 7, 0.589);
+}
+
 .artist {
     font-family: 'Acme', sans-serif;
     margin-bottom: initial;

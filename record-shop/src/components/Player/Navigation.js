@@ -41,9 +41,6 @@ export const Navigation = () => {
               <NavLink className="navBarText" exact to="/">
                 HOME
               </NavLink>{" "}
-              <NavLink className="navBarText" exact to="/about">
-                ABOUT
-              </NavLink>{" "}
               <NavLink  className="navBarText" to="/genre">GENRE</NavLink>{" "}
               <NavLink  className="navBarText" exact to="/contact">
                 CONTACT
