@@ -2,10 +2,15 @@
   margin-top: 10px;
 }
 
+.theme {
+  box-shadow: 0px 2px 2px rgb(243, 243, 243);
+  width: 100vw;
+}
+
 Nav {
   list-style: none;
   padding: 0 5px;
-  margin: 5px;
+  margin-bottom: 5px;
 }
 
 /* .navigation a:hover {
@@ -16,6 +21,12 @@ Nav {
 } */
 
 div > a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  padding: 0 5px;
+}
+
+div > a > a {
   text-decoration: none;
   color: rgb(0, 0, 0);
   padding: 0 5px;
@@ -58,6 +69,27 @@ h3 > span {
   padding: 10px;
 }
 
-.dropdown-menu {
+.dropdownM {
   width: 400%;
+  left: -250px !important;
+}
+
+.dropdown {
+  margin: 0 10px !important;
+}
+
+.cartCount {
+  background-color: rgb(221, 0, 0);
+  color: aliceblue;
+  border-radius: 50%;
+  position: absolute;
+  top: 1px;
+  right: 15px;
+  width: 20px;
+  height: 20px;
+  font-size: 15px;
+  font-weight: 900;
+}
+
+@media (max-width: 771px) {
 }

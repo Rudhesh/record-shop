@@ -1,24 +1,25 @@
 .home {
   display: flex;
+  background-color: white;
 }
 
 .productContainer {
   display: flex;
-  width: 78%;
+  width: 100%;
   padding: 20px;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 
+h6 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .filters {
-  background-color: rgb(241, 241, 241);
-  color: rgb(0, 0, 0);
+  background-color: rgb(245, 245, 245);
   padding: 20px;
-  display: flex;
-  flex-direction: column;
-  width: 400px;
-  height: 10px;
-  height: 90vh;
 }
 
 .filters > span {
@@ -32,6 +33,27 @@
 .products {
   width: 300px;
   margin: 10px;
+}
+
+.productsOne {
+  margin: 10px;
+  border: rgb(236, 236, 236) 1px solid;
+  background-color: rgb(255, 240, 255);
+  border-radius: 5px;
+}
+
+.boxBody {
+  display: flex;
+}
+
+.boxBody > img {
+  width: 100px;
+  margin: 10px;
+}
+
+.musicData {
+  margin: 10px;
+  display: flex;
 }
 
 .cartItem {
@@ -57,8 +79,15 @@
 }
 
 .summary {
-  /* width: 30%; */
+  width: 30%;
   float: right;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 20px;
 }
 
 @media (max-width: 771px) {
@@ -67,7 +96,7 @@
   }
 
   .title {
-    font-size: 18px !important;
+    font-size: 28px !important;
   }
 
   .productContainer {
@@ -85,20 +114,10 @@
     width: 100%;
   }
 
-  .filters {
-    background-color: rgb(54, 54, 54);
-    color: white;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* flex-direction: column; */
-    width: 30vw;
-    height: 90vh;
-    margin-top: 80px;
-    position: fixed;
-    right: 0;
-    z-index: 333;
+  .smallNav {
+    display: flex !important;
+    box-sizing: border-box;
+    border: 2px black solid;
   }
 }
 
@@ -106,4 +125,8 @@
   position: fixed;
   z-index: 300;
   width: 100%;
+}
+
+.offcanvas-start {
+  width: 300px !important;
 }

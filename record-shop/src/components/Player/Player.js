@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect, useContext } from "react";
 import Controls from "./Controls";
 import Details from "./Details";
+import Image from "react-bootstrap/Image";
 
 function Player(props) {
   const audioEl = useRef(null);
@@ -39,30 +40,36 @@ function Player(props) {
       });
     }
   };
+  // console.log(props.songs);
+
+  console.log(props.songs);
 
   return (
-    <div className="c-player">
-      <div>
-        <audio
-          src={props.songs[props.currentSongIndex].src}
-          ref={audioEl}
-        ></audio>
+    <div className="backgroundImg">
+      <Image src={props.songs[props.currentSongIndex].img_src} rounded />
+      <div className="c-player">
+        <div>
+          <audio
+            src={props.songs[props.currentSongIndex].src}
+            ref={audioEl}
+          ></audio>
 
-        <Details song={props.songs[props.currentSongIndex]} />
-      </div>
-      <div className="controls">
-        <Controls
-          isPlaying={isPlaying}
-          setIsPlaying={setIsPlaying}
-          SkipSong={SkipSong}
-        />
-        <p>
-          Next up:{" "}
-          <span>
-            {props.songs[props.nextSongIndex].title} by{" "}
-            {props.songs[props.nextSongIndex].artist}
-          </span>
-        </p>
+          <Details song={props.songs[props.currentSongIndex]} />
+        </div>
+        <div className="controls">
+          <Controls
+            isPlaying={isPlaying}
+            setIsPlaying={setIsPlaying}
+            SkipSong={SkipSong}
+          />
+          <p>
+            Next up:{" "}
+            <span>
+              {props.songs[props.nextSongIndex].title} by{" "}
+              {props.songs[props.nextSongIndex].artist}
+            </span>
+          </p>
+        </div>
       </div>
     </div>
   );

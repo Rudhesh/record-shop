@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import ReadyPlayer from "./ReadyPlayer";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Home } from "./Home";
@@ -6,30 +6,37 @@ import { About } from "./About";
 import { Contact } from "./Contact";
 import Genre from "./Genre";
 import { Navigation } from "./components/Player/Navigation";
+import React, { useState } from "react";
 import Cart from "./Cart";
-import CourseItem from "./components/Player/CourseItem";
+import Login from "./Login";
+import "./App.css";
 
 const App = () => {
   return (
-    <>
-      <BrowserRouter>
-        <div className="theme">
-          <Navigation />
-        </div>
-        <Switch>
-          <Route exact path="/" component={Home} />
+    <div className="App">
+      <>
+        <BrowserRouter>
+          <div className="theme">
+            <Navigation />
+          </div>
+          <Switch>
+            <Route exact path="/" component={Home} />
 
-          <Route exact path="/about" component={About} />
+            <Route path="/genre" component={Genre} />
 
-          <Route path="/genre" component={Genre} />
+            <Route exact path="/about" component={About} />
 
-          <Route exact path="/contact" component={Contact} />
+            <Route exact path="/contact" component={Contact} />
 
-          <Route exact path="/cart" component={Cart} />
-          <ReadyPlayer />
-        </Switch>
-      </BrowserRouter>
-    </>
+            <Route exact path="/cart" component={Cart} />
+
+            <Route exact path="/profile" component={Login} />
+
+            <ReadyPlayer />
+          </Switch>
+        </BrowserRouter>
+      </>
+    </div>
   );
 };
 

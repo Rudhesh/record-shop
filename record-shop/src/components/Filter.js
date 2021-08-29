@@ -1,61 +1,95 @@
-import { Button, Form } from "react-bootstrap";
+import { Offcanvas, Form } from "react-bootstrap";
 import { CartState } from "../Context/Context";
+import Checkbox from "@material-ui/core/Checkbox";
+import Button from "@material-ui/core/Button";
+import FormGroup from "@material-ui/core/FormGroup";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import FormControl from "@material-ui/core/FormControl";
+import FormLabel from "@material-ui/core/FormLabel";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faHamburger } from "@fortawesome/free-solid-svg-icons";
 
 const Filter = () => {
   const {
     productState: { sort },
     productDispatch,
+    show,
+    setShow,
   } = CartState();
 
   console.log(sort);
 
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
     <div className="filters">
-      <span className="title"> Sort by price</span>
+      <>
+        <Button variant="outline dark" onClick={handleShow}>
+          <FontAwesomeIcon icon={faBars} />{" "}
+        </Button>
 
-      <span>
-        <Form.Check
-          inline
-          label="Low to high"
-          name="group1"
-          type="radio"
-          id={`inline-1`}
-          onChange={() =>
-            productDispatch({
-              type: "SORT_BY_PRICE",
-              payload: "lowToHigh",
-            })
-          }
-          checked={sort === "lowToHigh" ? true : false}
-        />
-      </span>
-      <span>
-        <Form.Check
-          inline
-          label="High to low"
-          name="group1"
-          type="radio"
-          id={`inline-2`}
-          onChange={() =>
-            productDispatch({
-              type: "SORT_BY_PRICE",
-              payload: "highToLow",
-            })
-          }
-          checked={sort === "highToLow" ? true : false}
-        />
-      </span>
+        <Offcanvas show={show} onHide={handleClose}>
+          <Offcanvas.Header closeButton>
+            <Offcanvas.Title>
+              {" "}
+              <span className="title"> Filter Products</span>
+            </Offcanvas.Title>
+          </Offcanvas.Header>
 
-      <Button
-        variant="light"
-        onClick={() =>
-          productDispatch({
-            type: "CLEAR_FILTERS",
-          })
-        }
-      >
-        Clear Filters
-      </Button>
+          <Offcanvas.Body className="content">
+            <Offcanvas.Title> Sort by price</Offcanvas.Title>
+            <br />
+
+            <span>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    onChange={() =>
+                      productDispatch({
+                        type: "SORT_BY_PRICE",
+                        payload: "lowToHigh",
+                      })
+                    }
+                    checked={sort === "lowToHigh" ? true : false}
+                  />
+                }
+                label="Low to High"
+                labelPlacement="end"
+              />
+            </span>
+            <span>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    inline
+                    onChange={() =>
+                      productDispatch({
+                        type: "SORT_BY_PRICE",
+                        payload: "highToLow",
+                      })
+                    }
+                    checked={sort === "highToLow" ? true : false}
+                  />
+                }
+                label="High to low"
+                labelPlacement="end"
+              />
+            </span>
+            <hr />
+            <Button
+              variant="light"
+              onClick={() =>
+                productDispatch({
+                  type: "CLEAR_FILTERS",
+                })
+              }
+            >
+              Clear Filters
+            </Button>
+          </Offcanvas.Body>
+        </Offcanvas>
+      </>
     </div>
   );
 };

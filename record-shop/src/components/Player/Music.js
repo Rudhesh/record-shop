@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
+<<<<<<< HEAD
 import { FaPlay,FaPause } from "react-icons/fa";
 import { CartState } from "../../Context/Context";
 
+=======
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPause, faPlay } from "@fortawesome/free-solid-svg-icons";
+>>>>>>> 6fbe735fb3779d0289bd44a1b038e04c0ab50715
 
 const useAudio = (url) => {
   const {
@@ -43,8 +48,17 @@ const Music = ({ url }) => {
 
   return (
     <div>
+<<<<<<< HEAD
       <button  type="button" class="btnPlayer" onClick={toggle}>
         {playing ? <FaPause /> : <FaPlay />}
+=======
+      <button type="button" class="btnPlayer" onClick={toggle}>
+        {playing ? (
+          <FontAwesomeIcon icon={faPause} />
+        ) : (
+          <FontAwesomeIcon icon={faPlay} />
+        )}
+>>>>>>> 6fbe735fb3779d0289bd44a1b038e04c0ab50715
       </button>
     </div>
   );
