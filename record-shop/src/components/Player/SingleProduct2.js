@@ -15,51 +15,58 @@ import {
 import Details from "./Details";
 
 const SingleProduct2 = ({ item }) => {
+  console.log(item.img_src);
   const {
-    state: { cart },
+    state: { favorite },
     dispatch,
     isPlaying,
     setIsPlaying,
   } = CartState();
 
   return (
-    <div className="productsOne">
-      <div>
-        <div className="boxBody">
-          <img
-            variant="top"
-            src={item.img_src}
-            alt={item.artist}
-            style={{ padding: "10px" }}
-          />
+    <div>
+      {item.msg === "No song selected" ? (
+        <span>No song selected</span>
+      ) : (
+        <div className="productsOne">
+          <div>
+            <div className="boxBody">
+              <img
+                variant="top"
+                src={item.img_src}
+                alt={item.artist}
+                style={{ padding: "10px" }}
+              />
 
-          <section className="musicData">
-            <div>
-              <p className="artist">{item.artist}</p>
+              <section className="musicData">
+                <div>
+                  <p className="artist">{item.artist}</p>
 
-              <p className="titleRecord">{item.title}</p>
-            </div>
-            <span>
-              <IconButton
-                className="removeFromCart"
-                onClick={() => {
-                  dispatch({
-                    type: "REMOVE_FAVORITE",
-                    payload: item,
-                  });
-                }}
-                variant="danger"
-              >
-                <CloseIcon />
-              </IconButton>
-            </span>
-          </section>
+                  <p className="titleRecord">{item.title}</p>
+                </div>
+                <span>
+                  <IconButton
+                    className="removeFromCart"
+                    onClick={() => {
+                      dispatch({
+                        type: "REMOVE_FAVORITE",
+                        payload: item,
+                      });
+                    }}
+                    variant="danger"
+                  >
+                    <CloseIcon />
+                  </IconButton>
+                </span>
+              </section>
 
-          {/* <button className="play-btn" onClick={() => setIsPlaying(!isPlaying)}>
+              {/* <button className="play-btn" onClick={() => setIsPlaying(!isPlaying)}>
             <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} />
           </button> */}
+            </div>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

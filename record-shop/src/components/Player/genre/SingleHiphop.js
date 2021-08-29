@@ -1,6 +1,8 @@
 import React from "react";
-import { Button, Card } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import { CartState } from "../../../Context/Context";
+import Button from "@material-ui/core/Button";
+
 import Music from "../Music";
 
 const SingleHiphop = ({ item }) => {
@@ -9,7 +11,7 @@ const SingleHiphop = ({ item }) => {
     dispatch,
   } = CartState();
 
-  if (item.genre === "Hip Hop") {
+  if (item.genre === "Hip Hop" || item.genre === "Hip hop") {
     console.log(item.genre);
     return (
       <div className="products">
@@ -33,20 +35,20 @@ const SingleHiphop = ({ item }) => {
               </p>
             </Card.Subtitle>
             {cart.some((p) => p.id === item.id) ? (
-              <button
+              <Button
                 className="removeFromCart"
+                color="secondary"
                 onClick={() => {
                   dispatch({
                     type: "REMOVE_FROM_CART",
                     payload: item,
                   });
                 }}
-                variant="danger"
               >
-                REMOVE FROM CART
-              </button>
+                REMOVE
+              </Button>
             ) : (
-              <button
+              <Button
                 className="addToCart"
                 onClick={() => {
                   dispatch({
@@ -56,8 +58,19 @@ const SingleHiphop = ({ item }) => {
                 }}
               >
                 ADD TO CART
-              </button>
+              </Button>
             )}
+            <Button
+              className="favorite"
+              onClick={() => {
+                dispatch({
+                  type: "FAVORITE",
+                  payload: item,
+                });
+              }}
+            >
+              Favorite
+            </Button>
           </Card.Body>
         </Card>
       </div>

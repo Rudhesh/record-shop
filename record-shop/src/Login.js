@@ -51,12 +51,13 @@ const Login = (details) => {
           <div className="welcome">
             <div className="profile">
               <img src={"/images/dog.jpg"} alt="" />
-              <h2>
+              <h4>
                 {" "}
                 Welcome, <span>{user.name}</span>
-              </h2>
+              </h4>
               <div className="productContainer">
                 {favorite.map((item) => {
+                  console.log(item);
                   return <SingleProduct2 item={item} key={item.id} />;
                 })}
               </div>

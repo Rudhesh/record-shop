@@ -9,19 +9,20 @@ const SingleProduct = ({ item }) => {
   const {
     state: { cart, favorite },
     dispatch,
+    styling,
   } = CartState();
 
   return (
     <div className="products">
       <Card>
-        
-        <Card.Img
-          variant="top"
-          src={item.img_src}
-          alt={item.artist}
-          style={{ padding: "10px" }}
-        />
-        <div className={styling === "dark" ? "imageRecordDark" : ""}></div>
+        <div className={styling === "dark" ? "imageRecordDark" : ""}>
+          <Card.Img
+            variant="top"
+            src={item.img_src}
+            alt={item.artist}
+            style={{ padding: "10px" }}
+          />
+        </div>
         <Card.Body>
           <Music url={item.src} />
           <Card.Title className="artist">{item.artist}</Card.Title>

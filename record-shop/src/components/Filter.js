@@ -23,7 +23,7 @@ const Filter = () => {
   const handleShow = () => setShow(true);
 
   return (
-    <div className="filters">
+    <div className="filter">
       <>
         <Button variant="outline dark" onClick={handleShow}>
           <FontAwesomeIcon icon={faBars} />{" "}

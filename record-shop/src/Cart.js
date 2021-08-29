@@ -88,13 +88,15 @@ const Cart = () => {
         <span className="title">Item count: ({cart.length})</span>
         <br />
         <span>
-          Subtotal<span>{subTotal.toFixed(2)}</span>
+          Subtotal <span className="Total">{subTotal.toFixed(2)}</span>
         </span>
+        <br />
         <br />
         <span>
           Shipping<span> 8,00€</span>
         </span>
         <span> Berlin, Germany</span>
+        <br />
         <br />
         <Form.Label className="my-1 mr-2" htmlFor="inlineFormCustomSelectPref">
           Select buying Method
@@ -110,8 +112,11 @@ const Cart = () => {
           <option>Pick up at the store</option>
         </Form.Control>
         <hr></hr>
-        <h3>Total {total}</h3>
-        <span>Tax included</span>
+        <h2>
+          Total {total == "8.00" ? "0.00" : total}
+          <span>Tax included</span>
+        </h2>
+
         <br />
         <Button type="button" disabled={cart.length === 0}>
           Proceed to Checkout

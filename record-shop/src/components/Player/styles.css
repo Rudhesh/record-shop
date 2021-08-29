@@ -22,14 +22,27 @@ h6 {
   padding: 20px;
 }
 
+.filter {
+  padding-top: 20px;
+}
+
 .filters > span {
-  padding-bottom: 20px;
+  padding-bottom: 30px;
+  font-weight: 500;
 }
 
 .title {
   font-size: 30px;
 }
 
+.Total {
+  font-size: 30px;
+}
+
+h2 > span {
+  font-size: 15px;
+  padding: 10px;
+}
 .products {
   width: 300px;
   margin: 10px;
@@ -81,6 +94,7 @@ h6 {
 .summary {
   width: 30%;
   float: right;
+  height: 90vh;
 }
 
 .content {
@@ -91,8 +105,12 @@ h6 {
 }
 
 @media (max-width: 771px) {
+  .filters {
+    background-color: rgb(255, 255, 255);
+  }
+
   .filters > span {
-    font-size: 10px;
+    font-size: 12px;
   }
 
   .title {
@@ -104,10 +122,6 @@ h6 {
     padding: 0;
     text-align: center;
     margin: 20px;
-  }
-
-  .search {
-    display: none !important;
   }
 
   .products {

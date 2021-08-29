@@ -26,7 +26,8 @@ const Genre = () => {
       <div>
         <Navbar bg="light" variant="light">
           <Nav className="links">
-            <Link to={`${url}`}>POP</Link> <Link to={`${url}/jazz`}>JAZZ</Link>{" "}
+            <Link to={`${url}`}>POP</Link>
+            <Link to={`${url}/jazz`}>JAZZ</Link>{" "}
             <Link to={`${url}/rock`}>ROCK</Link>{" "}
             <Link to={`${url}/hiphop`}>HIPHOP</Link>{" "}
           </Nav>

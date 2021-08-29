@@ -19,12 +19,6 @@ import {
 import { CartState } from "../../Context/Context";
 import "./styles.css";
 import "../../App.css";
-import Login from "../../Login";
-
-// import Button from "@material-ui/core/Button";
-// import Menu from "@material-ui/core/Menu";
-// import MenuItem from "@material-ui/core/MenuItem";
-// import { makeStyles } from "@material-ui/core/styles";
 
 export const Navigation = () => {
   const {
@@ -43,17 +37,13 @@ export const Navigation = () => {
             <span className="title">SECRET TRACK</span> RECORD STORE
           </h3>
         </Navbar.Brand>
-        <div style={{ display: "block" }}>
+        <div style={{ display: "" }}>
           <div style={{ display: "flex" }}>
             {" "}
             <Nav style={{ marginTop: "18px" }}>
               <NavLink className="navBarText" exact to="/">
                 HOME
               </NavLink>{" "}
-<<<<<<< HEAD
-              <NavLink  className="navBarText" to="/genre">GENRE</NavLink>{" "}
-              <NavLink  className="navBarText" exact to="/contact">
-=======
               <NavLink className="navBarText" exact to="/genre">
                 GENRE
               </NavLink>{" "}
@@ -61,7 +51,6 @@ export const Navigation = () => {
                 ABOUT
               </NavLink>{" "}
               <NavLink className="navBarText" exact to="/contact">
->>>>>>> 6fbe735fb3779d0289bd44a1b038e04c0ab50715
                 CONTACT
               </NavLink>{" "}
             </Nav>
@@ -71,7 +60,7 @@ export const Navigation = () => {
                   <FontAwesomeIcon icon={faUser} />
                 </Dropdown.Toggle>
 
-                <Dropdown.Menu>
+                <Dropdown.Menu className="dropdownProfile">
                   <Dropdown.Item href="#/action-1">
                     <NavLink exact to="/profile">
                       Profile
@@ -90,7 +79,7 @@ export const Navigation = () => {
                   className={favorite.length === 1 ? null : "favoriteCount"}
                 >
                   {" "}
-                  {favorite.length === 1 ? null : favorite.length}
+                  {favorite.length === 1 ? null : favorite.length - 1}
                 </span>
               </Button>
 
@@ -104,7 +93,7 @@ export const Navigation = () => {
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu
-                  className="dropdownM"
+                  className="dropdownCart"
                   style={{ minWidth: "30%" }}
                 >
                   {cart.length > 0 ? (

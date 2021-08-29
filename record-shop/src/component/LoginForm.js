@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { Form, Button, Row, Col } from "react-bootstrap";
+import { Form, Row, Col } from "react-bootstrap";
+import Button from "@material-ui/core/Button";
+
 import "./login.css";
 
 // destructuring
@@ -14,6 +16,7 @@ function LoginForm({ Login, error }) {
 
   return (
     <div className="login">
+      <h3>Please Login</h3>
       <Form onSubmit={submitHandler}>
         <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
           <Form.Label column sm={2}>
@@ -68,7 +71,7 @@ function LoginForm({ Login, error }) {
           </Col>
         </Form.Group>
 
-        <Button variant="primary" type="submit">
+        <Button variant="outlined" color="primary" type="submit">
           Login
         </Button>
       </Form>

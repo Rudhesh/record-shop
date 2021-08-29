@@ -8,7 +8,7 @@ export const About = () => {
     <Container>
       <div className="About">
         <Developer />
-        <Attribution />
+        {/* <Attribution /> */}
       </div>
     </Container>
   );
