@@ -138,7 +138,7 @@ export const Navigation = () => {
           </div>
           <Navbar.Text className="search">
             <FormControl
-              size="sm"
+              // size="sm"
               style={{ width: 500 }}
               placeholder="Search a product"
               className="m-auto"
