@@ -29,7 +29,6 @@ const Jazz = ({ item }) => {
   return (
     <div>
       <div className="home">
-        <Filter />
         <div className="productContainer">
           {transformProducts().map((item) => {
             return <SingleJazz item={item} key={item.id} />;

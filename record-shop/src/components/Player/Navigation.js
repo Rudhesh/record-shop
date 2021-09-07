@@ -19,6 +19,7 @@ import {
 import { CartState } from "../../Context/Context";
 import "./styles.css";
 import "../../App.css";
+import Filter from "../Filter";
 
 export const Navigation = () => {
   const {
@@ -30,15 +31,17 @@ export const Navigation = () => {
   } = CartState();
 
   return (
-    <>
+    <div className="navContainer">
       <Navbar bg="light" variant="light" className="smallNav">
-        <Navbar.Brand href="#">
+        <Navbar.Brand className="burgerMenu" href="#">
+          <Filter />
+
           <h3 className="title">
             <span className="title">SECRET TRACK</span> RECORD STORE
           </h3>
         </Navbar.Brand>
         <div style={{ display: "" }}>
-          <div style={{ display: "flex" }}>
+          <div className="mainNavbar">
             {" "}
             <Nav style={{ marginTop: "18px" }}>
               <NavLink className="navBarText" exact to="/">
@@ -71,17 +74,18 @@ export const Navigation = () => {
                   ) : null}
                 </Dropdown.Menu>
               </Dropdown>
+              <NavLink exact to="/profile">
+                <Button variant="outline-danger">
+                  <FontAwesomeIcon icon={faHeart} />
 
-              <Button variant="outline-danger">
-                <FontAwesomeIcon icon={faHeart} />
-
-                <span
-                  className={favorite.length === 1 ? null : "favoriteCount"}
-                >
-                  {" "}
-                  {favorite.length === 1 ? null : favorite.length - 1}
-                </span>
-              </Button>
+                  <span
+                    className={favorite.length === 1 ? null : "favoriteCount"}
+                  >
+                    {" "}
+                    {favorite.length === 1 ? null : favorite.length - 1}
+                  </span>
+                </Button>
+              </NavLink>
 
               <Dropdown>
                 <Dropdown.Toggle variant="outline-success" id="dropdown-basic">
@@ -152,6 +156,6 @@ export const Navigation = () => {
           </Navbar.Text>
         </div>
       </Navbar>
-    </>
+    </div>
   );
 };

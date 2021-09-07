@@ -2,10 +2,22 @@ import React, { useState, useRef, useEffect, useContext } from "react";
 import Controls from "./Controls";
 import Details from "./Details";
 import Image from "react-bootstrap/Image";
+import { CartState } from "../../Context/Context";
 
-function Player(props) {
+function Player() {
+  const {
+    state: { favorite },
+    setSong,
+    currentSongIndex,
+    setCurrentSongIndex,
+    nextSongIndex,
+    setNextSongIndex,
+    isPlaying,
+    setIsPlaying,
+  } = CartState();
+
   const audioEl = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(false);
+  // const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
     if (isPlaying) {
@@ -17,23 +29,23 @@ function Player(props) {
 
   const SkipSong = (forwards = true) => {
     if (forwards) {
-      props.setCurrentSongIndex(() => {
-        let temp = props.currentSongIndex;
+      setCurrentSongIndex(() => {
+        let temp = currentSongIndex;
         temp++;
 
-        if (temp > props.songs.length - 1) {
+        if (temp > favorite.length - 1) {
           temp = 0;
         }
 
         return temp;
       });
     } else {
-      props.setCurrentSongIndex(() => {
-        let temp = props.currentSongIndex;
+      setCurrentSongIndex(() => {
+        let temp = currentSongIndex;
         temp--;
 
         if (temp < 0) {
-          temp = props.songs.length - 1;
+          temp = favorite.length - 1;
         }
 
         return temp;
@@ -42,34 +54,38 @@ function Player(props) {
   };
   // console.log(props.songs);
 
-  console.log(props.songs);
+  console.log(favorite);
 
   return (
     <div className="backgroundImg">
-      <Image src={props.songs[props.currentSongIndex].img_src} rounded />
+      {/* <Image src={props.songs[props.currentSongIndex].img_src} rounded /> */}
       <div className="c-player">
-        <div>
-          <audio
-            src={props.songs[props.currentSongIndex].src}
-            ref={audioEl}
-          ></audio>
+        {!favorite ? (
+          favorite[0]
+        ) : (
+          <>
+            {" "}
+            <div>
+              <audio src={favorite[currentSongIndex].src} ref={audioEl}></audio>
 
-          <Details song={props.songs[props.currentSongIndex]} />
-        </div>
-        <div className="controls">
-          <Controls
-            isPlaying={isPlaying}
-            setIsPlaying={setIsPlaying}
-            SkipSong={SkipSong}
-          />
-          <p>
+              <Details song={favorite[currentSongIndex]} />
+            </div>
+            <div className="controls">
+              <Controls
+                isPlaying={isPlaying}
+                setIsPlaying={setIsPlaying}
+                SkipSong={SkipSong}
+              />
+              {/* <p>
             Next up:{" "}
             <span>
-              {props.songs[props.nextSongIndex].title} by{" "}
-              {props.songs[props.nextSongIndex].artist}
+              {favorite[nextSongIndex].title} by{" "}
+              {favorite[nextSongIndex].artist}
             </span>
-          </p>
-        </div>
+          </p> */}
+            </div>{" "}
+          </>
+        )}
       </div>
     </div>
   );

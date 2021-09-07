@@ -11,7 +11,7 @@ export const cartReducer = (state, action) => {
       return {
         ...state,
         favorite: state.favorite.filter((c) => c.id !== action.payload.id),
-      };
+              };
     case "REMOVE_FROM_CART":
       return {
         ...state,

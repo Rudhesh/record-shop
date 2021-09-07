@@ -31,7 +31,7 @@ export const Home = () => {
   return (
     <div className="home">
       <Header />
-      <Filter />
+      {/* <Filter /> */}
       <div className="productContainer">
         {transformProducts().map((item) => {
           return <SingleProduct item={item} key={item.id} />;

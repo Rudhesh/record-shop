@@ -17,11 +17,22 @@ const Cart = () => {
     (acc, curr) => acc + Number(curr.price) * curr.qty,
     0
   );
+
+  const [totalAmount, setTotalAmount] = useState(0);
+
   const shippingPrice = 8;
-  const totalPrice = subTotal + shippingPrice;
+  function totalAmounts() {
+    setTotalAmount(subTotal + shippingPrice);
+    console.log(setTotalAmount(subTotal + shippingPrice));
+    return setTotalAmount;
+  }
 
   useEffect(() => {
-    setTotal(totalPrice.toFixed(2));
+    setTotalAmount(subTotal);
+  }, [cart]);
+
+  useEffect(() => {
+    setTotal(subTotal.toFixed(2));
   }, [cart]);
 
   return (
@@ -98,22 +109,23 @@ const Cart = () => {
         <span> Berlin, Germany</span>
         <br />
         <br />
+
         <Form.Label className="my-1 mr-2" htmlFor="inlineFormCustomSelectPref">
           Select buying Method
         </Form.Label>
         <Form.Control
+          onChange={totalAmounts}
           as="select"
           className="my-1 mr-sm-2"
           id="inlineFormCustomSelectPref"
           custom
         >
-          <option>Choose...</option>
-          <option>Germany - 8,00€</option>
           <option>Pick up at the store</option>
+          <option>Germany - 8,00€</option>
         </Form.Control>
         <hr></hr>
         <h2>
-          Total {total == "8.00" ? "0.00" : total}
+          Total {totalAmount === "0.00" ? subTotal : totalAmount.toFixed(2)}
           <span>Tax included</span>
         </h2>
 

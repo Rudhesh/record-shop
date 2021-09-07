@@ -29,7 +29,6 @@ const Rock = () => {
   return (
     <div>
       <div className="home">
-        <Filter />
         <div className="productContainer">
           {transformProducts().map((item) => {
             return <SingleRock item={item} key={item.id} />;

@@ -22,9 +22,9 @@ h6 {
   padding: 20px;
 }
 
-.filter {
+/* .filter {
   padding-top: 20px;
-}
+} */
 
 .filters > span {
   padding-bottom: 30px;
@@ -32,9 +32,9 @@ h6 {
 }
 
 .title {
-  font-size: 30px;
+  font-size: 19px;
+  margin-top: 9px;
 }
-
 .Total {
   font-size: 30px;
 }
@@ -60,8 +60,9 @@ h2 > span {
 }
 
 .boxBody > img {
-  width: 100px;
-  margin: 10px;
+  width: 70px;
+  height: 70px;
+  margin: 5px;
 }
 
 .musicData {
@@ -104,9 +105,17 @@ h2 > span {
   font-size: 20px;
 }
 
+.offcanvas-start {
+  width: 200px !important;
+}
+
 @media (max-width: 771px) {
   .filters {
     background-color: rgb(255, 255, 255);
+  }
+
+  .offcanvas-start {
+    width: 35% !important;
   }
 
   .filters > span {
@@ -114,14 +123,18 @@ h2 > span {
   }
 
   .title {
-    font-size: 28px !important;
+    font-size: 15px;
   }
+
+  /* .offcanvas-start {
+    width: 30% !important;
+  } */
 
   .productContainer {
     width: 58%;
     padding: 0;
     text-align: center;
-    margin: 20px;
+    margin: 20px auto;
   }
 
   .products {
@@ -131,7 +144,6 @@ h2 > span {
   .smallNav {
     display: flex !important;
     box-sizing: border-box;
-    border: 2px black solid;
   }
 }
 
@@ -139,8 +151,4 @@ h2 > span {
   position: fixed;
   z-index: 300;
   width: 100%;
-}
-
-.offcanvas-start {
-  width: 300px !important;
 }

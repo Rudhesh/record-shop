@@ -419,7 +419,7 @@ export const Context = ({ children }) => {
 
   const [state, dispatch] = useReducer(cartReducer, {
     songs: songs,
-    favorite: [{ msg: "No song selected" }],
+    favorite: [{ Main: "List of songs", img_src: null }],
     cart: [],
   });
 

@@ -2,7 +2,7 @@ import React from "react";
 import { Card } from "react-bootstrap";
 import { Button, IconButton } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
-
+import FavoriteIcon from "@material-ui/icons/Favorite";
 import { CartState } from "../../Context/Context";
 import Music from "./Music";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,9 +13,10 @@ import {
   faBackward,
 } from "@fortawesome/free-solid-svg-icons";
 import Details from "./Details";
+import Controls from "./Controls";
+import ReadyPlayer from "../../ReadyPlayer";
 
 const SingleProduct2 = ({ item }) => {
-  console.log(item.img_src);
   const {
     state: { favorite },
     dispatch,
@@ -23,11 +24,18 @@ const SingleProduct2 = ({ item }) => {
     setIsPlaying,
   } = CartState();
 
+  function noSong() {
+    if (favorite.length === 1) {
+      return favorite[1];
+    } else if (favorite.length > 1) {
+      console.log(favorite[0]);
+      return item;
+    }
+  }
+
   return (
     <div>
-      {item.msg === "No song selected" ? (
-        <span>No song selected</span>
-      ) : (
+      {noSong() ? (
         <div className="productsOne">
           <div>
             <div className="boxBody">
@@ -39,12 +47,15 @@ const SingleProduct2 = ({ item }) => {
               />
 
               <section className="musicData">
+                {/* <Controls setIsPlaying={setIsPlaying} /> */}
+
                 <div>
                   <p className="artist">{item.artist}</p>
+                  <h3 style={{ margin: "10px auto" }}>{item.Main}</h3>
 
                   <p className="titleRecord">{item.title}</p>
                 </div>
-                <span>
+                {/* <span>
                   <IconButton
                     className="removeFromCart"
                     onClick={() => {
@@ -57,7 +68,7 @@ const SingleProduct2 = ({ item }) => {
                   >
                     <CloseIcon />
                   </IconButton>
-                </span>
+                </span> */}
               </section>
 
               {/* <button className="play-btn" onClick={() => setIsPlaying(!isPlaying)}>
@@ -66,6 +77,8 @@ const SingleProduct2 = ({ item }) => {
             </div>
           </div>
         </div>
+      ) : (
+        <div>No Song Added</div>
       )}
     </div>
   );

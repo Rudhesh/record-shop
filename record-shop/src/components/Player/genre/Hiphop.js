@@ -29,7 +29,6 @@ const Hiphop = () => {
   return (
     <div>
       <div className="home">
-        <Filter />
         <div className="productContainer">
           {transformProducts().map((item) => {
             return <SingleHiphop item={item} key={item.id} />;

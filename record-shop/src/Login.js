@@ -40,7 +40,6 @@ const Login = (details) => {
       });
     } else {
       alert("Details do not match");
-      return <Alert variant="success">hello</Alert>;
     }
   };
 
@@ -50,11 +49,13 @@ const Login = (details) => {
         <div className="favoritePlayer">
           <div className="welcome">
             <div className="profile">
-              <img src={"/images/dog.jpg"} alt="" />
-              <h4>
-                {" "}
-                Welcome, <span>{user.name}</span>
-              </h4>
+              <section className="mobileProfile">
+                <img src={"/images/dog.jpg"} alt="" />
+                <h4>
+                  {" "}
+                  Welcome, <span>{user.name}</span>
+                </h4>
+              </section>
               <div className="productContainer">
                 {favorite.map((item) => {
                   console.log(item);

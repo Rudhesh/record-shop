@@ -1,15 +1,29 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
+import { Button, IconButton } from "@material-ui/core";
+import CheckIcon from "@material-ui/icons/Check";
+import CloseIcon from "@material-ui/icons/Close";
+import FavoriteIcon from "@material-ui/icons/Favorite";
 import { Card } from "react-bootstrap";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faPlay,
+  faPause,
+  faForward,
+  faBackward,
+} from "@fortawesome/free-solid-svg-icons";
+
 import { CartState } from "../../Context/Context";
 import Music from "./Music";
 
 const SingleProduct = ({ item }) => {
   const {
-    state: { cart, favorite },
+    state: { cart, favorite, songs },
     dispatch,
     styling,
+    setIsPlaying,
+    isPlaying,
   } = CartState();
 
   return (
@@ -25,6 +39,9 @@ const SingleProduct = ({ item }) => {
         </div>
         <Card.Body>
           <Music url={item.src} />
+          {/* <button className="play-btn" onClick={() => setIsPlaying(!isPlaying)}>
+            <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} />
+          </button> */}
           <Card.Title className="artist">{item.artist}</Card.Title>
           <Card.Title>
             <h6 className="titleRecord">{item.title}</h6>
@@ -61,17 +78,41 @@ const SingleProduct = ({ item }) => {
               ADD TO CART
             </Button>
           )}
-          <Button
-            className="favorite"
-            onClick={() => {
-              dispatch({
-                type: "FAVORITE",
-                payload: item,
-              });
+
+          <span
+            style={{
+              position: "absolute",
+              right: 10,
+              bottom: 10,
             }}
           >
-            Favorite
-          </Button>
+            {favorite.some((p) => p.id === item.id) ? (
+              <IconButton
+                className="removeFromCart"
+                onClick={() => {
+                  dispatch({
+                    type: "REMOVE_FAVORITE",
+                    payload: item,
+                  });
+                }}
+                variant="danger"
+              >
+                <FavoriteIcon style={{ color: "red" }} />
+              </IconButton>
+            ) : (
+              <IconButton
+                className="favorite"
+                onClick={() => {
+                  dispatch({
+                    type: "FAVORITE",
+                    payload: item,
+                  });
+                }}
+              >
+                <FavoriteIcon />
+              </IconButton>
+            )}
+          </span>
         </Card.Body>
       </Card>
     </div>

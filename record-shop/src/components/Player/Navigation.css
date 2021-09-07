@@ -66,7 +66,7 @@ a {
 h3 > span {
   background-color: #333;
   color: white;
-  padding: 10px;
+  padding: 7px 11px;
 }
 
 .dropdownCart {
@@ -75,8 +75,8 @@ h3 > span {
 }
 
 .dropdownProfile {
-  width: 400%;
-  left: -161px !important;
+  width: 0;
+  left: -107px !important;
 }
 
 .dropdown {
@@ -115,13 +115,52 @@ h3 > span {
   flex-wrap: wrap !important;
 }
 
+.burgerMenu {
+  display: flex;
+}
+
+.mainNavbar {
+  display: flex;
+}
+
 @media (max-width: 771px) {
   .search {
     display: none !important;
   }
 
+  .burgerMenu {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    margin-left: 30px;
+  }
+
+  .mainNavbar {
+    display: block;
+    margin-left: 50px;
+  }
+
+  .dropdownProfile {
+    width: 0;
+    left: 0 !important;
+  }
+
   .dropdown {
     margin: 0px !important;
+  }
+
+  .icons {
+    /* display: none !important; */
+    /* display: flex !important; */
+  }
+
+  /* .smallNav {
+    display: flex !important;
+    background-color: aquamarine !important;
+  } */
+
+  .navContainer {
+    display: flex !important;
   }
 
   .favoriteCount {
@@ -130,7 +169,7 @@ h3 > span {
     border-radius: 50%;
     position: absolute;
     top: 8px;
-    right: 71px;
+    right: 130px;
     width: 20px;
     height: 20px;
     font-size: 12px;

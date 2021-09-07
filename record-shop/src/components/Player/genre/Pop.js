@@ -29,7 +29,6 @@ const Pop = () => {
   return (
     <div>
       <div className="home">
-        <Filter />
         <div className="productContainer">
           {transformProducts().map((item) => {
             return <SinglePop item={item} key={item.id} />;
