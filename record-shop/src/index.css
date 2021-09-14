@@ -1,6 +1,6 @@
 /* ===================================== */
 .c-player {
-  background-color: #9c9c9cc2;
+  background-color: #000000c2;
   width: 50vw;
   /* display: flex; */
   align-items: center;
@@ -115,7 +115,7 @@ form:after {
 
 @media (max-width: 771px) {
   .c-player {
-    background-color: #000000c2;
+    background-color: #000000;
     width: 100vw;
     /* display: flex; */
     position: absolute;

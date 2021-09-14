@@ -419,7 +419,15 @@ export const Context = ({ children }) => {
 
   const [state, dispatch] = useReducer(cartReducer, {
     songs: songs,
-    favorite: [{ Main: "List of songs", img_src: null }],
+    favorite: [
+      {
+        Main: "List of songs",
+        img_src: "/images/notAvailable.jpg",
+        title: "My Favorite",
+        artist: "",
+        src: "",
+      },
+    ],
     cart: [],
   });
 
@@ -448,10 +456,13 @@ export const Context = ({ children }) => {
 
   const [styling, setStyling] = useState("light");
 
+  const [login, setLogin] = useState(true);
   return (
     <div>
       <ShoppingCart.Provider
         value={{
+          login,
+          setLogin,
           state,
           dispatch,
           productState,

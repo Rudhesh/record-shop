@@ -22,6 +22,7 @@ const SingleProduct2 = ({ item }) => {
     dispatch,
     isPlaying,
     setIsPlaying,
+    song,
   } = CartState();
 
   function noSong() {
@@ -29,7 +30,7 @@ const SingleProduct2 = ({ item }) => {
       return favorite[1];
     } else if (favorite.length > 1) {
       console.log(favorite[0]);
-      return item;
+      return favorite.length;
     }
   }
 

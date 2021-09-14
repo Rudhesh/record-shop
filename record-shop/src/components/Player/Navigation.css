@@ -123,6 +123,11 @@ h3 > span {
   display: flex;
 }
 
+element.style {
+  width: 70%;
+  margin: 5px 0px !important;
+}
+
 @media (max-width: 771px) {
   .search {
     display: none !important;

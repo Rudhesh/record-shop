@@ -4,12 +4,13 @@ import {
   Nav,
   Dropdown,
   FormControl,
-  Button,
   Navbar,
+  Button,
   Badge,
 } from "react-bootstrap";
 import "./Navigation.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { Button } from "@material-ui/core";
 import {
   faShoppingCart,
   faHeart,
@@ -128,7 +129,11 @@ export const Navigation = () => {
                         </span>
                       ))}
                       <NavLink to="/cart">
-                        <Button style={{ width: "95%", margin: "0 10px" }}>
+                        <Button
+                          // variant="contained"
+                          // color="primary"
+                          style={{ width: "80%", margin: "5px 20px" }}
+                        >
                           Go To Cart
                         </Button>
                       </NavLink>

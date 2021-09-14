@@ -17,7 +17,6 @@ function Player() {
   } = CartState();
 
   const audioEl = useRef(null);
-  // const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
     if (isPlaying) {
@@ -56,6 +55,14 @@ function Player() {
 
   console.log(favorite);
 
+  function favoriteSongs() {
+    if (favorite[currentSongIndex].src) {
+      return favorite[currentSongIndex].src;
+    } else {
+      return favorite[0].src;
+    }
+  }
+
   return (
     <div className="backgroundImg">
       {/* <Image src={props.songs[props.currentSongIndex].img_src} rounded /> */}
@@ -66,7 +73,10 @@ function Player() {
           <>
             {" "}
             <div>
-              <audio src={favorite[currentSongIndex].src} ref={audioEl}></audio>
+              <audio
+                src={favoriteSongs() ? favoriteSongs() : favorite[0].src}
+                ref={audioEl}
+              ></audio>
 
               <Details song={favorite[currentSongIndex]} />
             </div>
@@ -76,13 +86,13 @@ function Player() {
                 setIsPlaying={setIsPlaying}
                 SkipSong={SkipSong}
               />
-              {/* <p>
-            Next up:{" "}
-            <span>
-              {favorite[nextSongIndex].title} by{" "}
-              {favorite[nextSongIndex].artist}
-            </span>
-          </p> */}
+              <p>
+                Next up:{" "}
+                <span>
+                  {favorite[nextSongIndex].title} by{" "}
+                  {favorite[nextSongIndex].artist}
+                </span>
+              </p>
             </div>{" "}
           </>
         )}

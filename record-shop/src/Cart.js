@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { ListGroup, Button, Col, Image, Row } from "react-bootstrap";
+import { ListGroup, Col, Image, Row } from "react-bootstrap";
+import { Button } from "@material-ui/core";
 import { CartState } from "./Context/Context";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
@@ -130,7 +131,12 @@ const Cart = () => {
         </h2>
 
         <br />
-        <Button type="button" disabled={cart.length === 0}>
+        <Button
+          type="button"
+          variant="contained"
+          color="primary"
+          disabled={cart.length === 0}
+        >
           Proceed to Checkout
         </Button>
       </div>

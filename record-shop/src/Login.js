@@ -7,12 +7,15 @@ import ReadyPlayer from "./ReadyPlayer";
 import { Alert, Button } from "react-bootstrap";
 import SingleProduct2 from "./components/Player/SingleProduct2";
 import { Favorite } from "@material-ui/icons";
+import AlertBox from "./components/Player/AlertBox";
 
 const Login = (details) => {
   console.log(details);
 
   const {
     state: { favorite },
+    login,
+    setLogin,
     user,
     setUser,
     error,
@@ -23,8 +26,6 @@ const Login = (details) => {
     email: "user@user.com",
     password: "123",
   };
-  //   const [user, setUser] = useState({ name: "", email: "" });
-  //   const [error, setError] = useState("");
 
   const LoginDetails = (details) => {
     console.log(details);
@@ -39,13 +40,16 @@ const Login = (details) => {
         email: details.email,
       });
     } else {
-      alert("Details do not match");
+      // alert("Details do not match");
+      setLogin(false);
     }
   };
 
   return (
     <div className="profilePage">
-      {user.email != "" ? (
+      {login ? <div></div> : <AlertBox />}
+
+      {user.email !== "" ? (
         <div className="favoritePlayer">
           <div className="welcome">
             <div className="profile">
