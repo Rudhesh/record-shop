@@ -17,8 +17,8 @@ const Developer = () => {
         <h3 className="Developer-head">Meet the developers</h3>
         <div className="Developer-profileCard">
           <div className="Card-details">
-            <h3>Kalaya</h3>
             <h3>Rudesh</h3>
+            <h3>Kalaya</h3>
             <h3>Khushal</h3>
           </div>
         </div>
@@ -33,28 +33,28 @@ const Developer = () => {
           </IconButton>
           <IconButton
             target={"_blank"}
-            href={"https://twitter.com/"}
+            href={"https://twitter.com/RDloves_miley"}
             title={""}
           >
             <Twitter />
           </IconButton>
           <IconButton
             target={"_blank"}
-            href={"https://www.linkedin.com/in/"}
+            href={"https://www.linkedin.com/in/rudesh-dhote-a00a22208/"}
             title={""}
           >
             <LinkedIn />
           </IconButton>
           <IconButton
             target={"_blank"}
-            href={"https://www.instagram.com//"}
+            href={"https://www.instagram.com/rudhesh/"}
             title={""}
           >
             <Instagram />
           </IconButton>
           <IconButton
             target={"_blank"}
-            href={"https:///"}
+            href={"https://competent-nightingale-686fa5.netlify.app/"}
             title={"Web Portfolio"}
           >
             <Portrait />
@@ -65,7 +65,7 @@ const Developer = () => {
           <div className="Attribution-div">
             <div className="Attribution-text">
               Icons made by
-              <a href="http://www.freepik.com/" title="Freepik">
+              <a href="https://www.facebook.com/rudhesh" title="Freepik">
                 &nbsp;Freepik&nbsp;
               </a>
               from

@@ -2,12 +2,15 @@ import React from "react";
 import { Card } from "react-bootstrap";
 import { CartState } from "../../../Context/Context";
 import Music from "../Music";
-import Button from "@material-ui/core/Button";
+import { Button, IconButton } from "@material-ui/core";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import { OverlayTrigger, Tooltip } from "react-bootstrap";
 
 const SinglePop = ({ item }) => {
   const {
-    state: { cart },
+    state: { cart, favorite },
     dispatch,
+    user1,
   } = CartState();
 
   if (item.genre === "Pop") {
@@ -59,17 +62,58 @@ const SinglePop = ({ item }) => {
                 ADD TO CART
               </Button>
             )}
-            <Button
-              className="favorite"
-              onClick={() => {
-                dispatch({
-                  type: "FAVORITE",
-                  payload: item,
-                });
-              }}
-            >
-              Favorite
-            </Button>
+            {user1 && user1._id ? (
+              <span
+                style={{
+                  position: "absolute",
+                  right: 10,
+                  bottom: 10,
+                }}
+              >
+                {favorite.some((p) => p.id === item.id) ? (
+                  <IconButton
+                    className="removeFromCart"
+                    onClick={() => {
+                      dispatch({
+                        type: "REMOVE_FAVORITE",
+                        payload: item,
+                      });
+                    }}
+                    variant="danger"
+                  >
+                    <FavoriteIcon style={{ color: "red" }} />
+                  </IconButton>
+                ) : (
+                  <IconButton
+                    className="favorite"
+                    onClick={() => {
+                      dispatch({
+                        type: "FAVORITE",
+                        payload: { ...item, userId: user1._id },
+                      });
+                    }}
+                  >
+                    <FavoriteIcon />
+                  </IconButton>
+                )}
+              </span>
+            ) : (
+              <OverlayTrigger
+                overlay={
+                  <Tooltip id="tooltip-disabled">Login to add favorite</Tooltip>
+                }
+              >
+                <span
+                  style={{
+                    position: "absolute",
+                    right: 20,
+                    bottom: 22,
+                  }}
+                >
+                  <FavoriteIcon />
+                </span>
+              </OverlayTrigger>
+            )}
           </Card.Body>
         </Card>
       </div>

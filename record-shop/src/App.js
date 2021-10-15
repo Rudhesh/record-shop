@@ -10,6 +10,7 @@ import React, { useState } from "react";
 import Cart from "./Cart";
 import Login from "./Login";
 import "./App.css";
+import Main from "./component/Main";
 
 const App = () => {
   return (
@@ -25,14 +26,16 @@ const App = () => {
             <Route path="/genre" component={Genre} />
 
             <Route exact path="/about" component={About} />
+            {/* <Route exact path="/main" component={Main} /> */}
 
             <Route exact path="/contact" component={Contact} />
 
             <Route exact path="/cart" component={Cart} />
 
-            <Route exact path="/profile" component={Login} />
+            <Route exact path="/main" component={Main} />
+            {/* <Route exact path="/main" component={Main} /> */}
 
-            <ReadyPlayer />
+            {/* <ReadyPlayer /> */}
           </Switch>
         </BrowserRouter>
       </>

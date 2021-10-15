@@ -4,7 +4,7 @@ import Details from "./Details";
 import Image from "react-bootstrap/Image";
 import { CartState } from "../../Context/Context";
 
-function Player() {
+function Player({ item }) {
   const {
     state: { favorite },
     setSong,
@@ -14,6 +14,9 @@ function Player() {
     setNextSongIndex,
     isPlaying,
     setIsPlaying,
+    products,
+    setProducts,
+    user1,
   } = CartState();
 
   const audioEl = useRef(null);
@@ -26,13 +29,19 @@ function Player() {
     }
   });
 
+  const p = products.filter((e) => {
+    if (e.user === user1._id) {
+      console.log("Array!!!", e);
+      return e;
+    }
+  });
   const SkipSong = (forwards = true) => {
     if (forwards) {
       setCurrentSongIndex(() => {
         let temp = currentSongIndex;
         temp++;
 
-        if (temp > favorite.length - 1) {
+        if (temp > p.length - 1) {
           temp = 0;
         }
 
@@ -44,7 +53,7 @@ function Player() {
         temp--;
 
         if (temp < 0) {
-          temp = favorite.length - 1;
+          temp = p.length - 1;
         }
 
         return temp;
@@ -52,50 +61,53 @@ function Player() {
     }
   };
   // console.log(props.songs);
-
-  console.log(favorite);
+  // products.map((e) => console.log("products :", e));
+  // console.log("products :", item);
 
   function favoriteSongs() {
-    if (favorite[currentSongIndex].src) {
-      return favorite[currentSongIndex].src;
-    } else {
-      return favorite[0].src;
-    }
+    return p[currentSongIndex] ? p[currentSongIndex].src : null;
   }
 
   return (
     <div className="backgroundImg">
-      {/* <Image src={props.songs[props.currentSongIndex].img_src} rounded /> */}
+      {/* <Image src={products.songs[products.currentSongIndex].img_src} rounded /> */}
       <div className="c-player">
-        {!favorite ? (
-          favorite[0]
-        ) : (
+        {user1 && user1._id ? (
           <>
             {" "}
             <div>
               <audio
-                src={favoriteSongs() ? favoriteSongs() : favorite[0].src}
+                src={favoriteSongs() ? favoriteSongs() : null}
                 ref={audioEl}
               ></audio>
 
-              <Details song={favorite[currentSongIndex]} />
+              <Details
+                song={
+                  p[currentSongIndex]
+                    ? p[currentSongIndex]
+                    : "/images/notAvailable.jpg"
+                }
+                isPlaying={isPlaying}
+                setIsPlaying={setIsPlaying}
+                SkipSong={SkipSong}
+              />
             </div>
-            <div className="controls">
+            {/* <div className="controls">
               <Controls
                 isPlaying={isPlaying}
                 setIsPlaying={setIsPlaying}
                 SkipSong={SkipSong}
               />
-              <p>
+               </div> */}
+            {/* <p>
                 Next up:{" "}
                 <span>
-                  {favorite[nextSongIndex].title} by{" "}
-                  {favorite[nextSongIndex].artist}
+                  {products[nextSongIndex].title} by{" "}
+                  {products[nextSongIndex].artist}
                 </span>
-              </p>
-            </div>{" "}
+              </p> */}
           </>
-        )}
+        ) : null}
       </div>
     </div>
   );

@@ -29,6 +29,9 @@ export const Navigation = () => {
     productDispatch,
     Logout,
     user,
+    user1,
+    setLoginUser1,
+    products,
   } = CartState();
 
   return (
@@ -65,25 +68,33 @@ export const Navigation = () => {
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu className="dropdownProfile">
-                  <Dropdown.Item href="#/action-1">
-                    <NavLink exact to="/profile">
-                      Profile
+                  <Dropdown.Item>
+                    <NavLink exact to="/main">
+                      LOGIN/SIGNUP
                     </NavLink>{" "}
                   </Dropdown.Item>
-                  {user.email ? (
-                    <Dropdown.Item onClick={Logout}> Logout</Dropdown.Item>
+                  {user1 && user1.email ? (
+                    <Dropdown.Item onClick={() => setLoginUser1({})}>
+                      {" "}
+                      Logout
+                    </Dropdown.Item>
                   ) : null}
+                  {/* <Dropdown.Item
+                    className="button"
+                    onClick={() => setLoginUser1({})}
+                  >
+                    Logout
+                  </Dropdown.Item> */}
                 </Dropdown.Menu>
               </Dropdown>
-              <NavLink exact to="/profile">
+              <NavLink exact to="/main">
                 <Button variant="outline-danger">
                   <FontAwesomeIcon icon={faHeart} />
-
                   <span
-                    className={favorite.length === 1 ? null : "favoriteCount"}
+                    className={favorite.length === 0 ? null : "favoriteCount"}
                   >
                     {" "}
-                    {favorite.length === 1 ? null : favorite.length - 1}
+                    {favorite.length === 0 ? null : favorite.length}
                   </span>
                 </Button>
               </NavLink>

@@ -7,7 +7,15 @@
   display: flex;
   width: 100%;
   padding: 20px;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
+  justify-content: space-around;
+}
+
+.productContainerOne {
+  display: block;
+  width: 100%;
+  padding: 20px;
+  /* flex-wrap: wrap; */
   justify-content: space-around;
 }
 
@@ -151,4 +159,8 @@ h2 > span {
   position: fixed;
   z-index: 300;
   width: 100%;
+}
+
+.favoritePlayer {
+  display: flex;
 }

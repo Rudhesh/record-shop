@@ -4,6 +4,7 @@ import { CartState } from "../../Context/Context";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPause, faPlay } from "@fortawesome/free-solid-svg-icons";
+import SingleProduct2 from "./SingleProduct2";
 
 const useAudio = (url) => {
   const {
@@ -53,6 +54,7 @@ const Music = ({ url }) => {
           <FontAwesomeIcon icon={faPlay} />
         )}
       </button>
+      {/* <SingleProduct2 playItem={playing} toggle={toggle}></SingleProduct2> */}
     </div>
   );
 };

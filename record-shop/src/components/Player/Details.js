@@ -1,18 +1,114 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { CartState } from "../../Context/Context";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faPlay,
+  faPause,
+  faForward,
+  faBackward,
+} from "@fortawesome/free-solid-svg-icons";
+import Controls from "./Controls";
 
 function Details(props) {
+  const {
+    state: { favorite },
+    products,
+    user1,
+    setNextSongIndex,
+    currentSongIndex,
+    nextSongIndex,
+  } = CartState();
+
+  console.log(props.song.user);
+  console.log(user1._id);
+  console.log("currentSong", currentSongIndex);
+
+  console.log(products);
+
+  // let p = [];
+  // products.map((item, index) => {
+  //   return p.push(item);
+  // });
+
+  const p = products.filter((e) => {
+    if (e.user === user1._id) {
+      console.log("Array", e);
+      return e;
+    }
+  });
+  console.log("P :", p);
+  function stopSong() {
+    <div>
+      <h1>Repeat</h1>
+    </div>;
+  }
+
   return (
     <>
-      <div className="c-player--details">
-        <div className="details-img">
-          <img src={props.song.img_src} alt="" />
-        </div>
+      {props.song.user === user1._id ? (
         <div>
-          <h4 className="heading">Playing now</h4>
-          <h3 className="details-title">{props.song.title}</h3>
-          <h4 className="details-artist">{props.song.artist}</h4>
+          <div className="c-player--details">
+            <div className="details-img">
+              <img
+                src={
+                  props.song.img_src
+                    ? props.song.img_src
+                    : "/images/notAvailable.jpg"
+                }
+                alt=""
+              />
+            </div>
+            <div>
+              <h4 className="heading">Playing now</h4>
+              <h3 className="details-title">{props.song.title}</h3>
+              <h4 className="details-artist">{props.song.artist}</h4>
+            </div>
+          </div>
+
+          <div className="c-player--controls">
+            <button className="skip-btn" onClick={() => props.SkipSong(false)}>
+              <FontAwesomeIcon icon={faBackward} />
+            </button>
+            <button
+              className="play-btn"
+              onClick={() => props.setIsPlaying(!props.isPlaying)}
+            >
+              <FontAwesomeIcon icon={props.isPlaying ? faPause : faPlay} />
+            </button>
+            <button className="skip-btn" onClick={() => props.SkipSong()}>
+              <FontAwesomeIcon icon={faForward} />
+            </button>
+          </div>
         </div>
-      </div>
+      ) : (
+        <>
+          {" "}
+          <div className="c-player--details">
+            <div className="details-img">
+              <img src={"/images/notAvailable.jpg"} alt="" />
+            </div>
+            <div>
+              <h4 className="heading">Playing now</h4>
+              <h3 className="details-title">{props.song.title}</h3>
+              <h4 className="details-artist">{props.song.artist}</h4>
+            </div>
+            <div className="c-player--controls">
+              <button
+                className="skip-btn"
+                onClick={() => props.SkipSong(false)}
+              >
+                <FontAwesomeIcon icon={faBackward} />
+              </button>
+              <button className="play-btn">
+                <FontAwesomeIcon icon={!user1 ? faPause : faPlay} />
+              </button>
+              <button className="skip-btn">
+                <FontAwesomeIcon icon={faForward} />
+              </button>
+            </div>
+          </div>
+        </>
+      )}
     </>
   );
 }

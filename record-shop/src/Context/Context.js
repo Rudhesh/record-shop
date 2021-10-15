@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useReducer, useState } from "react";
 import { cartReducer, productReducer } from "./Reducers";
+import axios from "axios";
 
 const ShoppingCart = React.createContext();
 
@@ -418,19 +419,26 @@ export const Context = ({ children }) => {
   ];
 
   const [state, dispatch] = useReducer(cartReducer, {
-    songs: songs,
     favorite: [
-      {
-        Main: "List of songs",
-        img_src: "/images/notAvailable.jpg",
-        title: "My Favorite",
-        artist: "",
-        src: "",
-      },
+      // {
+      //   id: 0,
+      //   Main: "List of songs",
+      //   img_src: "/images/notAvailable.jpg",
+      //   title: "My Favorite",
+      //   artist: "",
+      //   src: "",
+      // },
     ],
+    songs: songs,
     cart: [],
   });
+  // function playlist() {
+  //   const { id, title } = state.favorite[0];
 
+  //   axios.post("http://localhost:9002/main", state.favorite[0]).then((res) => {
+  //     alert(res.data.message);
+  //   });
+  // }
   const [productState, productDispatch] = useReducer(productReducer, {
     searchQuery: "",
   });
@@ -456,13 +464,28 @@ export const Context = ({ children }) => {
 
   const [styling, setStyling] = useState("light");
 
-  const [login, setLogin] = useState(true);
+  const [login1, setLogin1] = useState(true);
+
+  const [user1, setLoginUser1] = useState({});
+
+  const [products, setProducts] = useState([]);
+
+  const [login, setLogin] = useState({
+    id: "",
+    name: "",
+    email: "",
+    password: "",
+    reEnterPassword: "",
+  });
+
   return (
     <div>
       <ShoppingCart.Provider
         value={{
-          login,
-          setLogin,
+          user1,
+          setLoginUser1,
+          login1,
+          setLogin1,
           state,
           dispatch,
           productState,
@@ -484,6 +507,10 @@ export const Context = ({ children }) => {
           setIsPlaying,
           styling,
           setStyling,
+          products,
+          setProducts,
+          login,
+          setLogin,
         }}
       >
         {children}

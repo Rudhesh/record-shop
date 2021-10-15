@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Button, IconButton } from "@material-ui/core";
 import CheckIcon from "@material-ui/icons/Check";
@@ -7,15 +7,17 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import { Card } from "react-bootstrap";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Overlay, OverlayTrigger, Tooltip } from "react-bootstrap";
 import {
   faPlay,
   faPause,
   faForward,
   faBackward,
 } from "@fortawesome/free-solid-svg-icons";
-
 import { CartState } from "../../Context/Context";
 import Music from "./Music";
+
+const LOCAL_STORAGE_KEY = "react-todo-list-todos";
 
 const SingleProduct = ({ item }) => {
   const {
@@ -24,7 +26,20 @@ const SingleProduct = ({ item }) => {
     styling,
     setIsPlaying,
     isPlaying,
+    user1,
+    products,
   } = CartState();
+
+  useEffect(() => {
+    const song = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+    if (song) {
+      dispatch(song);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(favorite));
+  }, [favorite]);
 
   return (
     <div className="products">
@@ -78,41 +93,58 @@ const SingleProduct = ({ item }) => {
               ADD TO CART
             </Button>
           )}
-
-          <span
-            style={{
-              position: "absolute",
-              right: 10,
-              bottom: 10,
-            }}
-          >
-            {favorite.some((p) => p.id === item.id) ? (
-              <IconButton
-                className="removeFromCart"
-                onClick={() => {
-                  dispatch({
-                    type: "REMOVE_FAVORITE",
-                    payload: item,
-                  });
-                }}
-                variant="danger"
-              >
-                <FavoriteIcon style={{ color: "red" }} />
-              </IconButton>
-            ) : (
-              <IconButton
-                className="favorite"
-                onClick={() => {
-                  dispatch({
-                    type: "FAVORITE",
-                    payload: item,
-                  });
+          {user1 && user1._id ? (
+            <span
+              style={{
+                position: "absolute",
+                right: 10,
+                bottom: 10,
+              }}
+            >
+              {favorite.some((p) => p.id === item.id) ? (
+                <IconButton
+                  className="removeFromCart"
+                  onClick={() => {
+                    dispatch({
+                      type: "REMOVE_FAVORITE",
+                      payload: item,
+                    });
+                  }}
+                  variant="danger"
+                >
+                  <FavoriteIcon style={{ color: "red" }} />
+                </IconButton>
+              ) : (
+                <IconButton
+                  className="favorite"
+                  onClick={() => {
+                    dispatch({
+                      type: "FAVORITE",
+                      payload: { ...item, userId: user1._id },
+                    });
+                  }}
+                >
+                  <FavoriteIcon />
+                </IconButton>
+              )}
+            </span>
+          ) : (
+            <OverlayTrigger
+              overlay={
+                <Tooltip id="tooltip-disabled">Login to add favorite</Tooltip>
+              }
+            >
+              <span
+                style={{
+                  position: "absolute",
+                  right: 20,
+                  bottom: 22,
                 }}
               >
                 <FavoriteIcon />
-              </IconButton>
-            )}
-          </span>
+              </span>
+            </OverlayTrigger>
+          )}
         </Card.Body>
       </Card>
     </div>
