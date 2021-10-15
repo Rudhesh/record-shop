@@ -38,19 +38,19 @@ MongoDB used to store user records and login details
 SCREENSHOTS:
 
 Landing Page:
-![Getting Started](./public/images/project-1.png)
+![Getting Started](./record-shop/public/images/project-1.png)
 
 GENRE:
-![Getting Started](./public/images/project-2.png)
+![Getting Started](./record-shop/public/images/project-2.png)
 
 User Library
-![Getting Started](./public/images/project-3.png)
+![Getting Started](./record-shop/public/images/project-3.png)
 
 Sign-in && Sign-Up Page:
-![Getting Started](./public/images/project-4.png)
+![Getting Started](./record-shop/public/images/project-4.png)
 
 Cart Section:
-![Getting Started](./public/images/project-5.png)
+![Getting Started](./record-shop/public/images/project-5.png)
 
 Developed With
 Visual Studio Code - A source code editor developed by Microsoft for Windows, Linux and macOS. It includes support for debugging, embedded Git control, syntax highlighting, intelligent code completion, snippets, and code refactoring
