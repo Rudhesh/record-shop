@@ -1,33 +1,21 @@
 import React, { useEffect } from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import { Button, IconButton } from "@material-ui/core";
-import CheckIcon from "@material-ui/icons/Check";
-import CloseIcon from "@material-ui/icons/Close";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import { Card } from "react-bootstrap";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Overlay, OverlayTrigger, Tooltip } from "react-bootstrap";
-import {
-  faPlay,
-  faPause,
-  faForward,
-  faBackward,
-} from "@fortawesome/free-solid-svg-icons";
+
 import { CartState } from "../../Context/Context";
 import Music from "./Music";
 
-const LOCAL_STORAGE_KEY = "react-todo-list-todos";
+const LOCAL_STORAGE_KEY = "songList";
 
 const SingleProduct = ({ item }) => {
   const {
-    state: { cart, favorite, songs },
+    state: { cart, favorite },
     dispatch,
     styling,
-    setIsPlaying,
-    isPlaying,
+
     user1,
-    products,
   } = CartState();
 
   useEffect(() => {
@@ -54,9 +42,7 @@ const SingleProduct = ({ item }) => {
         </div>
         <Card.Body>
           <Music url={item.src} />
-          {/* <button className="play-btn" onClick={() => setIsPlaying(!isPlaying)}>
-            <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} />
-          </button> */}
+
           <Card.Title className="artist">{item.artist}</Card.Title>
           <Card.Title>
             <h6 className="titleRecord">{item.title}</h6>

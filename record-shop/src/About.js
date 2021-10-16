@@ -1,12 +1,11 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import Attribution from "./components/Player/Attribution";
 import Developer from "./components/Player/Developer";
-
+import "./App.css";
 export const About = () => {
   return (
-    <Container>
-      <div className="About">
+    <Container className="contact">
+      <div className="contactDetails">
         <Developer />
       </div>
     </Container>

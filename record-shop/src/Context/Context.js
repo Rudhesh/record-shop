@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useReducer, useState } from "react";
 import { cartReducer, productReducer } from "./Reducers";
-import axios from "axios";
 
 const ShoppingCart = React.createContext();
 
@@ -419,31 +418,14 @@ export const Context = ({ children }) => {
   ];
 
   const [state, dispatch] = useReducer(cartReducer, {
-    favorite: [
-      // {
-      //   id: 0,
-      //   Main: "List of songs",
-      //   img_src: "/images/notAvailable.jpg",
-      //   title: "My Favorite",
-      //   artist: "",
-      //   src: "",
-      // },
-    ],
+    favorite: [],
     songs: songs,
     cart: [],
   });
-  // function playlist() {
-  //   const { id, title } = state.favorite[0];
 
-  //   axios.post("http://localhost:9002/main", state.favorite[0]).then((res) => {
-  //     alert(res.data.message);
-  //   });
-  // }
   const [productState, productDispatch] = useReducer(productReducer, {
     searchQuery: "",
   });
-
-  // console.log(songs[0].id);
 
   const [song, setSong] = useState(songs);
 

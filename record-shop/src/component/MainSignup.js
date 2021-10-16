@@ -6,7 +6,6 @@ import { Form } from "react-bootstrap";
 import { Button, TextField } from "@material-ui/core";
 import { CartState } from "../Context/Context";
 import AlertBox from "../components/Player/AlertBox";
-import AlertBox1 from "../components/Player/AlertBox1";
 
 const MainSignup = () => {
   const { login, setLogin, login1, setLogin1 } = CartState();

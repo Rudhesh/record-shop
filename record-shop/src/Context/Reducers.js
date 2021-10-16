@@ -1,6 +1,5 @@
 import axios from "axios";
 
-// const { playlist } = CartState();
 export const cartReducer = (state, action) => {
   switch (action.type) {
     case "ADD_TO_CART":

@@ -1,6 +1,5 @@
 import React from "react";
 import { CartState } from "../../../Context/Context";
-import Filter from "../../Filter";
 import SingleJazz from "./SingleJazz";
 
 const Jazz = ({ item }) => {

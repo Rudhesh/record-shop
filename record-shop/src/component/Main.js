@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import SingleProduct2 from "../components/Player/SingleProduct2";
+import React, { useEffect } from "react";
 import { CartState } from "../Context/Context";
 import ReadyPlayer from "../ReadyPlayer";
 import MainLogin from "./MainLogin";
@@ -10,33 +9,20 @@ import axios from "axios";
 import { Button, IconButton } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
 import "./login.css";
-import Player from "../components/Player/Player";
 const Main = () => {
-  const {
-    state: { favorite },
-    login,
-    setLogin,
-    user,
-    setUser,
-    error,
-    setError,
-    user1,
-    setLoginUser1,
-    products,
-    setProducts,
-  } = CartState();
+  const { user1, setLoginUser1, products, setProducts } = CartState();
 
   useEffect(getProducts, []);
   useEffect(updateProducts, []);
 
   function updateProducts() {
-    if (products.length === 0) {
+    if (products.length < 0) {
       return false;
     } else {
       return true;
     }
   }
-
+  console.log("Product length :", products.length);
   function getProducts() {
     console.log("getProducts");
     axios
@@ -46,15 +32,6 @@ const Main = () => {
         console.log("user Status: ", user1);
         setProducts(res.data);
       });
-    // const url = "http://localhost:9002/main";
-    // const loginData = { id: 1 };
-    // fetch(url, { data: loginData })
-    //   .then((response) => response.json())
-    //   .then((results) => {
-    //     console.log(results);
-    //     setProducts(results);
-    //   })
-    //   .catch((error) => console.log("ERROR FETCHING DATA", error));
   }
 
   function deleteProduct(product) {

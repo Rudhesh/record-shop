@@ -2,10 +2,7 @@ import { Offcanvas, Form } from "react-bootstrap";
 import { CartState } from "../Context/Context";
 import Checkbox from "@material-ui/core/Checkbox";
 import Button from "@material-ui/core/Button";
-import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
-import FormControl from "@material-ui/core/FormControl";
-import FormLabel from "@material-ui/core/FormLabel";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faHamburger } from "@fortawesome/free-solid-svg-icons";
 

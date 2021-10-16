@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import Player from "./components/Player/Player";
 import { CartState } from "./Context/Context";
 import "./index.css";

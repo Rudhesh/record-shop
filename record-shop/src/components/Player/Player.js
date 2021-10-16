@@ -1,21 +1,15 @@
-import React, { useState, useRef, useEffect, useContext } from "react";
-import Controls from "./Controls";
+import React, { useRef, useEffect } from "react";
 import Details from "./Details";
-import Image from "react-bootstrap/Image";
 import { CartState } from "../../Context/Context";
 
 function Player({ item }) {
   const {
-    state: { favorite },
-    setSong,
     currentSongIndex,
     setCurrentSongIndex,
-    nextSongIndex,
-    setNextSongIndex,
+
     isPlaying,
     setIsPlaying,
     products,
-    setProducts,
     user1,
   } = CartState();
 
@@ -60,9 +54,6 @@ function Player({ item }) {
       });
     }
   };
-  // console.log(props.songs);
-  // products.map((e) => console.log("products :", e));
-  // console.log("products :", item);
 
   function favoriteSongs() {
     return p[currentSongIndex] ? p[currentSongIndex].src : null;
@@ -70,7 +61,6 @@ function Player({ item }) {
 
   return (
     <div className="backgroundImg">
-      {/* <Image src={products.songs[products.currentSongIndex].img_src} rounded /> */}
       <div className="c-player">
         {user1 && user1._id ? (
           <>
@@ -92,13 +82,6 @@ function Player({ item }) {
                 SkipSong={SkipSong}
               />
             </div>
-            {/* <div className="controls">
-              <Controls
-                isPlaying={isPlaying}
-                setIsPlaying={setIsPlaying}
-                SkipSong={SkipSong}
-              />
-               </div> */}
             {/* <p>
                 Next up:{" "}
                 <span>

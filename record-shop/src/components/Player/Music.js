@@ -1,18 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { FaPlay, FaPause } from "react-icons/fa";
 import { CartState } from "../../Context/Context";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPause, faPlay } from "@fortawesome/free-solid-svg-icons";
-import SingleProduct2 from "./SingleProduct2";
 
 const useAudio = (url) => {
-  const {
-    state: { cart },
-    dispatch,
-    styling,
-    setStyling,
-  } = CartState();
+  const { styling, setStyling } = CartState();
   const [audio] = useState(new Audio(url));
   const [playing, setPlaying] = useState(false);
 
@@ -54,7 +47,6 @@ const Music = ({ url }) => {
           <FontAwesomeIcon icon={faPlay} />
         )}
       </button>
-      {/* <SingleProduct2 playItem={playing} toggle={toggle}></SingleProduct2> */}
     </div>
   );
 };

@@ -8,7 +8,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import { Nav, Navbar, Container } from "react-bootstrap";
+import { Nav, Navbar } from "react-bootstrap";
 import Pop from "./components/Player/genre/Pop";
 import Jazz from "./components/Player/genre/Jazz";
 import Rock from "./components/Player/genre/Rock";
@@ -34,9 +34,6 @@ const Genre = () => {
         </Navbar>
 
         <Switch>
-          {/* <Route exact path={`${path}/:genre`}>
-            <CourseItem />
-          </Route> */}
           <Route exact path={`${path}`} component={Pop} />
           <Route exact path={`${path}/jazz`} component={Jazz} />
           <Route exact path={`${path}/rock`} component={Rock} />
@@ -46,32 +43,5 @@ const Genre = () => {
     </BrowserRouter>
   );
 };
-
-// import React from "react";
-// import { Link, useRouteMatch, Switch, Route } from "react-router-dom";
-// import CourseItem from "./components/Player/CourseItem";
-
-// function Genre() {
-//   const { url, path } = useRouteMatch();
-
-//   return (
-//     <div>
-//       <ul>
-//         <li>
-//           <Link to={`${url}/programming`}>Programming</Link>
-//         </li>
-//         <li>
-//           <Link to={`${url}/networking`}>Networking</Link>
-//         </li>
-//       </ul>
-
-//       <Switch>
-//         <Route path={`${path}/:genre`}>
-//           <CourseItem></CourseItem>
-//         </Route>
-//       </Switch>
-//     </div>
-//   );
-// }
 
 export default Genre;

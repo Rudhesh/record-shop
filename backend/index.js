@@ -19,7 +19,6 @@ if (dotenvResult.error) {
 }
 
 mongoose.connect(
-  // "mongodb://localhost:27017/myLoginRegisterDB",
   `mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@localhost:${process.env.DB_PORT}/${process.env.DB_HOST}`,
 
   () => {
@@ -77,24 +76,6 @@ app.post("/mainsignup", userValidators, (req, res) => {
   });
 });
 
-// user = await User.create({
-//   _id: new mongoose.Types.ObjectId(),
-//   name: "Rudesh",
-//   email: "rudhesh@gmail.com",
-// });
-// console.log(user);
-
-// app.get("/main", async (req, res) => {
-//   Playlist.find({}).exec((err, playlists) => {
-//     if (err) {
-//       res.status(400).send(err);
-//     } else {
-//       res.status(200).json(playlists);
-//       console.log(playlists);
-//     }
-//   });
-// });
-
 app.delete("/main/:productId", (req, res) => {
   Playlist.deleteOne({ _id: req.params.productId })
     .then((result) => {
@@ -107,35 +88,6 @@ app.delete("/main/:productId", (req, res) => {
       res.send({ message: "All very bad" });
     });
 });
-
-// app.post("/main", async (req, res) => {
-//   console.log(req.body);
-
-//   const { id, title, format, genre, img_src, src, type, price, userId } =
-//     req.body;
-
-//   const playlist = await Playlist.create({
-//     _id: new mongoose.Types.ObjectId(),
-//     id,
-//     title,
-//     format,
-//     genre,
-//     img_src,
-//     src,
-//     type,
-//     price,
-
-//     user: userId,
-//   });
-
-//   const user = await User.findById(userId);
-//   user.playlists.push(playlist);
-
-//   await user.save();
-//   // console.log(playlist);
-//   console.log(user);
-//   console.log(await User.findOne({}).populate("playlists"), ["artist"]);
-// });
 
 app.post("/main", async (req, res) => {
   // console.log(user);
@@ -181,28 +133,8 @@ app.post("/main", async (req, res) => {
       // res.send({ message: "Total count :", count });
     }
   });
-  // Playlist.findOne({ id: id }, async (err, playlist) => {
-  //   if (playlist) {
-  //     // console.log(playlist);
-  //   } else {
-
-  //   }
-  // });
 });
-// console.log(user);
-// console.log(await User.findOne({}).populate("playlists"), ["title"]);
-// console.log(await Playlist.findOne({}).populate("user"));
 
-// app.get("/main", (req, res) => {
-// const { user1 } = req.body;
-// console.log(user1._id);
-// const user = Playlist.findOne({ _id: req.params.productId });
-// res.json(user);
-// if () {
-
-// } else {
-
-// }
 app.get("/main", async (req, res) => {
   console.log("request main: ", req.query);
   // console.log("request userId: ", item);
@@ -210,9 +142,6 @@ app.get("/main", async (req, res) => {
   Playlist.find({}).exec((err, playlists) => {
     res.status(200).send(playlists);
 
-    // res.status(200).send(item.title);
-    // console.log(item);
-    // console.log("request userId: ", item.user);
     console.log("request main: ", `new ObjectId("${req.query.answer}")`);
   });
 });

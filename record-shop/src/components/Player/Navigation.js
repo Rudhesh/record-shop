@@ -1,16 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import {
-  Nav,
-  Dropdown,
-  FormControl,
-  Navbar,
-  Button,
-  Badge,
-} from "react-bootstrap";
+import { Nav, Dropdown, FormControl, Navbar, Button } from "react-bootstrap";
 import "./Navigation.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { Button } from "@material-ui/core";
 import {
   faShoppingCart,
   faHeart,
@@ -31,7 +23,6 @@ export const Navigation = () => {
     user,
     user1,
     setLoginUser1,
-    products,
   } = CartState();
 
   return (
@@ -79,12 +70,6 @@ export const Navigation = () => {
                       Logout
                     </Dropdown.Item>
                   ) : null}
-                  {/* <Dropdown.Item
-                    className="button"
-                    onClick={() => setLoginUser1({})}
-                  >
-                    Logout
-                  </Dropdown.Item> */}
                 </Dropdown.Menu>
               </Dropdown>
               <NavLink exact to="/main">
@@ -93,7 +78,7 @@ export const Navigation = () => {
                   <span
                     className={favorite.length === 0 ? null : "favoriteCount"}
                   >
-                    {" "}
+                    {console.log("test :", user1)}{" "}
                     {favorite.length === 0 ? null : favorite.length}
                   </span>
                 </Button>
@@ -140,11 +125,7 @@ export const Navigation = () => {
                         </span>
                       ))}
                       <NavLink to="/cart">
-                        <Button
-                          // variant="contained"
-                          // color="primary"
-                          style={{ width: "80%", margin: "5px 20px" }}
-                        >
+                        <Button style={{ width: "80%", margin: "5px 20px" }}>
                           Go To Cart
                         </Button>
                       </NavLink>
@@ -158,7 +139,6 @@ export const Navigation = () => {
           </div>
           <Navbar.Text className="search">
             <FormControl
-              // size="sm"
               style={{ width: 500 }}
               placeholder="Search a product"
               className="m-auto"

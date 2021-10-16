@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { CartState } from "../../Context/Context";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -7,28 +7,15 @@ import {
   faForward,
   faBackward,
 } from "@fortawesome/free-solid-svg-icons";
-import Controls from "./Controls";
 
 function Details(props) {
-  const {
-    state: { favorite },
-    products,
-    user1,
-    setNextSongIndex,
-    currentSongIndex,
-    nextSongIndex,
-  } = CartState();
+  const { products, user1, currentSongIndex } = CartState();
 
   console.log(props.song.user);
   console.log(user1._id);
   console.log("currentSong", currentSongIndex);
 
   console.log(products);
-
-  // let p = [];
-  // products.map((item, index) => {
-  //   return p.push(item);
-  // });
 
   const p = products.filter((e) => {
     if (e.user === user1._id) {
@@ -37,11 +24,6 @@ function Details(props) {
     }
   });
   console.log("P :", p);
-  function stopSong() {
-    <div>
-      <h1>Repeat</h1>
-    </div>;
-  }
 
   return (
     <>
