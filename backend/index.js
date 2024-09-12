@@ -12,19 +12,30 @@ app.use(express.json());
 app.use(express.urlencoded());
 app.use(cors());
 
-const dotenvResult = dotenv.config({ path: "./.env" });
-if (dotenvResult.error) {
-  console.log("ERROR when loading .env", dotenvResult.error);
-  process.exit(1);
-}
+// const dotenvResult = dotenv.config({ path: "./.env" });
+// if (dotenvResult.error) {
+//   console.log("ERROR when loading .env", dotenvResult.error);
+//   process.exit(1);
+// }
+dotenv.config();
+// mongoose.connect(
+//   `mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@localhost:${process.env.DB_PORT}/${process.env.DB_HOST}`,
 
-mongoose.connect(
-  `mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@localhost:${process.env.DB_PORT}/${process.env.DB_HOST}`,
-
-  () => {
-    console.log("mongoDB is connected");
-  }
-);
+//   () => {
+//     console.log("mongoDB is connected");
+//   }
+// );
+mongoose
+  .connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    // useCreatIndex: true,
+    // useUnifiedTopology: true,
+    // useFindAndModify: false,
+  })
+  .then(() => {
+    console.log("connection successful");
+  })
+  .catch((err) => console.log("no connection", err));
 
 //Route
 // await User.deleteMany({});
