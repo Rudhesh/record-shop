@@ -42,17 +42,11 @@ const MainLogin = ({ setLoginUser1 }) => {
   };
 
   const login1 = () => {
-    axios.post("https://record-shop-one.vercel.app/mainlogin", user)
-    .then((res) => {
-      if (Array.isArray(res.data.user)) {
-        setLoginUser1(res.data.user);  // Assuming user data is expected to be an array
-      } else {
-        console.error("Unexpected data format", res.data);
-      }
+    axios.post("https://record-shop-one.vercel.app/mainlogin", user).then((res) => {
+      alert(res.data.message);
+console.log(res.data)
+      setLoginUser1(res.data.user);
       history.push("/main");
-    })
-    .catch((err) => {
-      console.error("Login failed", err);
     });
   };
 
