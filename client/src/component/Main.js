@@ -23,6 +23,7 @@ const Main = () => {
     }
   }
   console.log("Product length :", products.length);
+  console.log({user1})
   function getProducts() {
     console.log("getProducts");
     axios.get("/main", { params: { answer: user1._id } }).then((res) => {
