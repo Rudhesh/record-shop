@@ -26,7 +26,7 @@ const Main = () => {
   console.log({user1})
   function getProducts() {
     console.log("getProducts");
-    axios.get("/main", { params: { answer: user1._id } }).then((res) => {
+    axios.get("https://record-shop-one.vercel.app/main", { params: { answer: user1._id } }).then((res) => {
       // alert(res.data.message);
       console.log("user Status: ", user1);
       setProducts(res.data);
