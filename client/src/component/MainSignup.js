@@ -27,7 +27,7 @@ const MainSignup = () => {
         .post("https://record-shop-one.vercel.app/mainsignup", login)
         .then((res) => {
           alert(res.data.message);
-          history.push("https://record-shop-one.vercel.app/mainlogin");
+          history.push("/mainlogin");
         })
         .catch((e) =>
           alert(

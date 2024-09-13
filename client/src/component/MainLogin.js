@@ -46,7 +46,7 @@ const MainLogin = ({ setLoginUser1 }) => {
       alert(res.data.message);
 
       setLoginUser1(res.data.user);
-      history.push("https://record-shop-one.vercel.app/main");
+      history.push("/main");
     });
   };
 
