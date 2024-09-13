@@ -35,7 +35,7 @@ const Main = () => {
   }
 
   function deleteProduct(product) {
-    const url = "/main/" + product._id;
+    const url = "https://record-shop-one.vercel.app/main/" + product._id;
     const config = {
       method: "DELETE",
     };
@@ -50,7 +50,7 @@ const Main = () => {
 
   return (
     <div className="Main">
-      <>Hello</>
+  
       <Router>
         <Switch>
           <Route exact path="/main">
