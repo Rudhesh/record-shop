@@ -30,6 +30,7 @@ const Main = () => {
       // alert(res.data.message);
       console.log("user Status: ", user1);
       setProducts(res.data);
+      console.log({products})
     });
   }
 
@@ -52,7 +53,7 @@ const Main = () => {
       <>Hello</>
       <Router>
         <Switch>
-          <Route exact path="https://record-shop-one.vercel.app/main">
+          <Route exact path="/main">
             {user1 && user1._id ? (
               <div className="favoritePlayer">
                 <div className="welcome">
