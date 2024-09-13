@@ -24,10 +24,10 @@ const MainSignup = () => {
     const { name, email, password, reEnterPassword } = login;
     if (name && email && password && password === reEnterPassword) {
       axios
-        .post("/mainsignup", login)
+        .post("https://record-shop-one.vercel.app/mainsignup", login)
         .then((res) => {
           alert(res.data.message);
-          history.push("/mainlogin");
+          history.push("https://record-shop-one.vercel.app/mainlogin");
         })
         .catch((e) =>
           alert(
