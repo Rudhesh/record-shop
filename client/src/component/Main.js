@@ -49,9 +49,10 @@ const Main = () => {
 
   return (
     <div className="Main">
+      <>Hello</>
       <Router>
         <Switch>
-          <Route exact path="/main">
+          <Route exact path="https://record-shop-one.vercel.app/main">
             {user1 && user1._id ? (
               <div className="favoritePlayer">
                 <div className="welcome">
