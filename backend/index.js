@@ -9,7 +9,7 @@ import userValidators from "./validators/userValidators.js";
 
 const app = express();
 app.use(express.json());
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }));
 app.use(cors(
   {
     origin: ["https://record-shop-one.vercel.app"],
@@ -20,19 +20,8 @@ app.use(cors(
 
 
 
-// const dotenvResult = dotenv.config({ path: "./.env" });
-// if (dotenvResult.error) {
-//   console.log("ERROR when loading .env", dotenvResult.error);
-//   process.exit(1);
-// }
 dotenv.config();
-// mongoose.connect(
-//   `mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@localhost:${process.env.DB_PORT}/${process.env.DB_HOST}`,
 
-//   () => {
-//     console.log("mongoDB is connected");
-//   }
-// );
 mongoose
   .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
@@ -49,6 +38,10 @@ mongoose
 // await User.deleteMany({});
 // await Playlist.deleteMany({});
 
+
+app.get("/", (req,res)=>{
+  res.json("HELLO")
+})
 app.post("/mainlogin", (req, res) => {
   const { email, password } = req.body;
   User.findOne({ email: email }, (err, user) => {
