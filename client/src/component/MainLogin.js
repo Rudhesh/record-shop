@@ -49,7 +49,7 @@ const MainLogin = ({ setLoginUser1 }) => {
       } else {
         console.error("Unexpected data format", res.data);
       }
-      history.push("https://record-shop-one.vercel.app/main");
+      history.push("/main");
     })
     .catch((err) => {
       console.error("Login failed", err);
