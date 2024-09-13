@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded());
 app.use(cors(
   {
-    origin: ["https://record-shop-beta.vercel.app"],
+    origin: ["https://record-shop-one.vercel.app"],
     methods: ["POST","GET"],
     credentials: true
   }
