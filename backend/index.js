@@ -10,7 +10,15 @@ import userValidators from "./validators/userValidators.js";
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded());
-app.use(cors());
+app.use(cors(
+  {
+    origin: ["https://record-shop-beta.vercel.app"],
+    methods: ["POST","GET"],
+    credentials: true
+  }
+));
+
+
 
 // const dotenvResult = dotenv.config({ path: "./.env" });
 // if (dotenvResult.error) {
