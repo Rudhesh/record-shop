@@ -10,15 +10,14 @@ import userValidators from "./validators/userValidators.js";
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors(
-  {
+app.use(
+  cors({
     origin: ["https://record-shop-frontend.vercel.app"],
-    methods: ["POST","GET","DELETE"],
-    credentials: true
-  }
-));
-
-
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type"],
+    credentials: true,
+  })
+);
 
 dotenv.config();
 
@@ -38,10 +37,9 @@ mongoose
 // await User.deleteMany({});
 // await Playlist.deleteMany({});
 
-
-app.get("/", (req,res)=>{
-  res.json("HELLO")
-})
+app.get("/", (req, res) => {
+  res.json("HELLO");
+});
 app.post("/mainlogin", (req, res) => {
   const { email, password } = req.body;
   User.findOne({ email: email }, (err, user) => {
