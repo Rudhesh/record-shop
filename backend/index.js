@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors(
   {
     origin: ["https://record-shop-frontend.vercel.app"],
-    methods: ["POST","GET"],
+    methods: ["POST","GET","DELETE"],
     credentials: true
   }
 ));
