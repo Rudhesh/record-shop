@@ -26,9 +26,9 @@ const Main = () => {
   console.log({user1})
   function getProducts() {
     console.log("getProducts");
-    axios.get("/main", { params: { answer: user1._id } }).then((res) => {
-    // axios.get("https://record-shop-one.vercel.app/main", { params: { answer: user1._id } }).then((res) => {
-      // alert(res.data.message);
+    // axios.get("/main", { params: { answer: user1._id } }).then((res) => {
+     axios.get("https://record-shop-one.vercel.app/main", { params: { answer: user1._id } }).then((res) => {
+      alert(res.data.message);
       console.log("user Status: ", user1);
       setProducts(res.data);
       console.log({products})
@@ -36,8 +36,8 @@ const Main = () => {
   }
 
   function deleteProduct(product) {
-    const url = "/main/" + product._id;
-    // const url = "https://record-shop-one.vercel.app/main/" + product._id;
+    // const url = "/main/" + product._id;
+     const url = "https://record-shop-one.vercel.app/main/" + product._id;
     const config = {
       method: "DELETE",
     };
@@ -52,7 +52,7 @@ const Main = () => {
 
   return (
     <div className="Main">
-  
+
       <Router>
         <Switch>
           <Route exact path="/main">

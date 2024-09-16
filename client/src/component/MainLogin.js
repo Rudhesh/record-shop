@@ -42,8 +42,8 @@ const MainLogin = ({ setLoginUser1 }) => {
   };
 
   const login1 = () => {
-    // axios.post("https://record-shop-one.vercel.app/mainlogin", user).then((res) => {
-    axios.post("/mainlogin", user).then((res) => {
+    axios.post("https://record-shop-one.vercel.app/mainlogin", user).then((res) => {
+    // axios.post("/mainlogin", user).then((res) => {
       alert(res.data.message);
 console.log(res.data)
       setLoginUser1(res.data.user);
